@@ -1,11 +1,13 @@
 <?php 
-    require_once __DIR__ .'/../partials/db_connect.php';
-    if ($_SERVER['REQUEST_METHOD']== 'POST' && isset($_GET['madonhang'])){
+    
+    if ( isset($_GET['madonhang'])){
         $query = 'select * from donhang join sanpham on donhang.masanpham = sanpham.masanpham
         join khachhang on donhang.makhachhang = khachhang.makhachhang where madonhang=?' ;
         try {
             $statement = $pdo->prepare($query);
             $statement->execute([$_GET['madonhang']]);
+            $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+            echo'111111';
         } catch (PDOException $e) {
             $error_message='không thể lấy dữ liệu';
             $pdo_error = $e->getMessage();
@@ -58,22 +60,22 @@
                       <div class="col-md-12">
                           <label for="kh_ten">Họ tên</label>
                           <input type="text" class="form-control" name="kh_ten" id="kh_ten"
-                              value="<?=htmlspecialchars($query->tenkhachhang)?>" >
+                              value="<?=htmlspecialchars($result->kh_ten)?>" >
                       </div>
                       <div class="col-md-12">
                           <label for="kh_diachi">Địa chỉ</label>
                           <input type="text" class="form-control" name="kh_diachi" id="kh_diachi"
-                              value="<?=htmlspecialchars($query->diachi)?>" >
+                              value="<?=htmlspecialchars($result->kh_diachi)?>" >
                       </div>
                       <div class="col-md-12">
                           <label for="kh_dienthoai">Điện thoại</label>
                           <input type="text" class="form-control" name="kh_dienthoai" id="kh_dienthoai"
-                              value="<?=htmlspecialchars($query->sodienthoai)?>" >
+                              value="<?=htmlspecialchars($result->kh_dienthoai)?>" >
                       </div>
                       <div class="col-md-12">
                           <label for="kh_email">Email</label>
                           <input type="text" class="form-control" name="kh_email" id="kh_email"
-                              value="<?=htmlspecialchars($query->Email)?>" >
+                              value="<?=htmlspecialchars($result->kh_email)?>" >
                       </div>
                   </div>
 

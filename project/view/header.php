@@ -18,7 +18,7 @@
                                     <a class="nav-link bg-info text-light" href="index.php?act=cart">Giỏ hàng</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link bg-info text-light" href="index.php?act=cart">Thanh Toán</a>
+                                    <a class="nav-link bg-info text-light" href="index.php?act=checkout">Thanh Toán</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link bg-info text-light" href="index.php?act=cart">Tiến trình</a>

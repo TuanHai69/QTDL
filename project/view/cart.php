@@ -1,88 +1,131 @@
-<?php 
-    // require_once __DIR__ .'/../partials/db_connect.php';
-    // if ($_SERVER['REQUEST_METHOD']== 'POST' && isset($_GET['madonhang'])){
-
-    //     try {
-
-    //     } catch (PDOException $e) {
-    //         $error_message='không thể lấy dữ liệu';
-    //         $pdo_error = $e->getMessage();
-    //     }}
-    $query = 'select * from donhang join sanpham on donhang.masanpham = sanpham.masanpham
-    join khachhang on donhang.makhachhang = khachhang.makhachhang where madonhang=?' ;
-    $statement = $conn->prepare($query);
-    $statement->execute([$_GET['madonhang']]);
-    
-?>
-<div class="container mt-4">
-    <form class="needs-validation" name="frmthanhtoan" method="post" action="#">
-        <input type="hidden" name="" value="">
-
-        <div class="py-5 text-center">
-            <h2>Thanh toán</h2>
-            <p class="lead">Vui lòng kiểm tra thông tin Khách hàng, thông tin Giỏ hàng trước khi Đặt hàng.</p>
-        </div>
-
+<?php
+?><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css">
+<div class="container">                
+<div class="contentbar">                
+        <!-- Start row -->
         <div class="row">
-            <div class="col-md-4 order-md-2 mb-4">
-                <h4 class="d-flex justify-content-between align-items-center mb-3">
-                    <span class="text-muted">Giỏ hàng</span>
-                </h4>
-                <ul class="list-group mb-3">
-
-                    <li class="list-group-item d-flex justify-content-between lh-condensed">
-                        <div>
-                            <h6 class="my-0">Tên SP</h6>
-                            <small class="text-muted">Giá x SL</small>
-                            <button>x</button>
+            <!-- Start col -->
+            <div class="col-md-12 col-lg-12 col-xl-12">
+                <div class="card m-b-30">
+                    <div class="card-header">
+                        <h5 class="card-title">Giỏ hàng</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-10 col-xl-8">
+                                <div class="cart-container">
+                                    <div class="cart-head">
+                                        <div class="table-responsive">
+                                            <table class="table table-borderless">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">#</th>
+                                                                                                    
+                                                        <th scope="col">Sản phẩm</th>
+                                                        <th scope="col">Mã sản phẩm</th>
+                                                        <th scope="col">Số lượng</th>
+                                                        <th scope="col">Giá</th>
+                                                        <th scope="col" class="text-right">Tổng giá</th>
+                                                        <th scope="col">Xóa</th>   
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">1</th>
+                                                        
+                                                        <td>Apple iPhone</td>
+                                                        <td>SP0000112</td>
+                                                        <td>
+                                                            <div class="form-group mb-0">
+                                                                <input type="number" class="form-control cart-qty" name="cartQty1" id="cartQty1" value="1">
+                                                            </div>
+                                                        </td>
+                                                        <td>$10</td>
+                                                        <td class="text-right">$500</td>
+                                                        <td><a href="#" class="text-danger"><i class="ri-delete-bin-3-line"></i></a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">2</th>
+                                                      
+                                                     
+                                                        <td>Apple iPhone</td>
+                                                        <td>SP0000112</td>
+                                                        <td>
+                                                            <div class="form-group mb-0">
+                                                                <input type="number" class="form-control cart-qty" name="cartQty2" id="cartQty2" value="1">
+                                                            </div>
+                                                        </td>
+                                                        <td>$20</td>
+                                                        <td class="text-right">$200</td>
+                                                        <td><a href="#" class="text-danger"><i class="ri-delete-bin-3-line"></i></a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">3</th>
+                                                       
+                                                       
+                                                        <td>Apple iPad</td>
+                                                        <td>SP0000112</td>
+                                                        <td>
+                                                            <div class="form-group mb-0">
+                                                                <input type="number" class="form-control cart-qty" name="cartQty3" id="cartQty3" value="1">
+                                                            </div>
+                                                        </td>
+                                                        <td>$30</td>
+                                                        <td class="text-right">$300</td>
+                                                        <td><a href="#" class="text-danger"><i class="ri-delete-bin-3-line"></i></a></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="cart-body">
+                                        <div class="row">
+                                            <div class="col-md-12 order-2 order-lg-1 col-lg-5 col-xl-6">
+                                                <div class="order-note">
+                                                    <form>
+                                                    
+                                                        <div class="form-group">
+                                                            <label for="specialNotes">Ghi chú đơn hàng:</label>
+                                                            <textarea class="form-control" name="specialNotes" id="specialNotes" rows="3" placeholder="Nhập lời nhắn của bạn"></textarea>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 order-1 order-lg-2 col-lg-7 col-xl-6">
+                                                <div class="order-total table-responsive ">
+                                                    <table class="table table-borderless text-right">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>Tạm tính</td>
+                                                                <td>200.000đ</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Phí ship</td>
+                                                                <td>$0.00</td>
+                                                            </tr>
+                                                           
+                                                            <tr>
+                                                                <td class="f-w-7 font-18"><h4>Tổng cộng</h4></td>
+                                                                <td class="f-w-7 font-18"><h4>200.000đ</h4></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cart-footer text-right">
+                                        <button type="button" class="btn btn-info my-1"><i class="ri-save-line mr-2"></i>Sản phẩm khác</button>
+                                        <a href="page-checkout.html" class="btn btn-success my-1">Thanh toán<i class="ri-arrow-right-line ml-2"></i></a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <span class="text-muted">GIá</span>
-                    </li>
-
-
-
-                    <li class="list-group-item d-flex justify-content-between">
-                        <span>Tổng thành tiền</span>
-                        <strong>xxx</strong>
-                    </li>
-                </ul>
-
-
-
-
-            </div>
-            <div class="col-md-8 order-md-1">
-                <h4 class="mb-3">Thông tin khách hàng</h4>
-
-                <div class="row">
-                    <div class="col-md-12">
-                        <label for="kh_ten">Họ tên</label>
-                        <input type="text" class="form-control" name="kh_ten" id="kh_ten"
-                            value="<?=htmlspecialchars($query->tenkhachhang)?>">
-                    </div>
-                    <div class="col-md-12">
-                        <label for="kh_diachi">Địa chỉ</label>
-                        <input type="text" class="form-control" name="kh_diachi" id="kh_diachi"
-                            value="<?=htmlspecialchars($query->diachi)?>">
-                    </div>
-                    <div class="col-md-12">
-                        <label for="kh_dienthoai">Điện thoại</label>
-                        <input type="text" class="form-control" name="kh_dienthoai" id="kh_dienthoai"
-                            value="<?=htmlspecialchars($query->sodienthoai)?>">
-                    </div>
-                    <div class="col-md-12">
-                        <label for="kh_email">Email</label>
-                        <input type="text" class="form-control" name="kh_email" id="kh_email"
-                            value="<?=htmlspecialchars($query->Email)?>">
                     </div>
                 </div>
-
-
-                <hr class="mb-4">
-                <button class="btn btn-primary btn-lg btn-block" type="submit" name="btnDatHang">Đặt
-                    hàng</button>
             </div>
+            <!-- End col -->
         </div>
-    </form>
-
-</div>
+        <!-- End row -->
+    </div>
+    </div>

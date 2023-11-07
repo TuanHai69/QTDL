@@ -104,6 +104,11 @@
                 include '../view/cart.php';
                 include '../view/footer.php';
                 break;
+            case 'checkout':
+                include '../view/header.php';
+                include '../view/checkout.php';
+                include '../view/footer.php';
+                break;  
             default:
                 include '../view/header.php';
                 include '../xuly/xapxepdefault.php';
