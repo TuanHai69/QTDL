@@ -1,0 +1,21 @@
+.petlogo{
+    height: 200px;
+    width: 400px;
+}
+
+.BGRheader{
+    background-color: rgb(181, 239, 239);
+}
+#imgTT{
+    width: 700px;
+    height: 300px;
+}
+.imgex{
+    width: 300px;
+    height: 200px;
+}
+.imgSP{
+    border-radius: 20px;
+    width: 250px;
+    height: 150px;
+}
