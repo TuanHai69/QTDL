@@ -25,7 +25,12 @@ if (isset($_POST['submit'])) {
         $statement->bindParam(':mkh', $_POST['codeid']);
         $statement->bindParam(':pass', $_POST['passwordchange']);
         $statement->execute();
-        header('Location: index.php?act=profile');
+        echo '<script type="text/javascript">';
+        echo 'alert("Cập nhật thông tin thành công");';
+        echo 'window.location.href="index.php?act=profile";'; 
+        //         echo 'window.history.back();'; 
+
+        echo '</script>';
     } else {
         header('Location: index.php?act=edit_profile');
         exit(0);
