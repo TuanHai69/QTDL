@@ -1,13 +1,6 @@
 <?php
 if (isset($_POST['submit'])) {
 
-    //   Kiểm tra thông tin mật khẩu
-    // echo $_POST['userchange'];
-    // echo $_POST['sdtchange'];
-    // echo $_POST['diachichange'];
-    // echo $_POST['emailchange'];
-    // echo $_POST['codeid'];
-    // echo $_POST['passwordchange'];
 
     $statement = $conn->prepare("SELECT * FROM banhang.khachhang WHERE makhachhang=:mkh and matkhau=:mk");
     $statement->bindParam(':mkh', $_POST['codeid']);
