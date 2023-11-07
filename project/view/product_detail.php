@@ -2,7 +2,6 @@
 
     if (isset($_POST["product_detail"])) {
         $masanpham = $_POST["masanpham"];
-
         $stmt = $conn->prepare('SELECT * FROM banhang.sanpham WHERE masanpham=:masanpham');
         $stmt->bindParam(':masanpham', $masanpham);
         $stmt->execute();

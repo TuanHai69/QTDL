@@ -86,11 +86,9 @@
                             role="button" data-bs-toggle="button">Đặt hàng</a></td>
                     <!-- </form> -->
 
-                    <!-- <form action="" method="post"> -->
-                    <!-- <input type="hidden" name="masanpham" value=> -->
-                    <td><a href='index.php?act=product_detail&&id=<?=$results['masanpham']?>' class="btn btn-info"
-                            role="button" data-bs-toggle="button">Xem chi tiết</a></td>
-                    <!-- </form> -->
+                    <form action="index.php?act=product_detail" method="post">
+                        <input type="hidden" name="masanpham" value=<?= htmlspecialchars($result['masanpham'])?>>
+                        <td><button class="btn btn-info" name="product_detail" type="submit">xem chi tiết</button></td>
                 </tr>
                 <?php endforeach ?>
             </tbody>
