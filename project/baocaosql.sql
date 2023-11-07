@@ -118,6 +118,36 @@ begin
 		signal sqlstate '01000';
     end if;
 end;
+create table giohang (
+	magiohang char(8) primary key,
+	makhachhang char(8),
+	tenkhachhang varchar(50),
+    diachi varchar(100) not null,
+	sodienthoai int(10),
+    email varchar(50),
+	masanpham CHAR(8),
+    tensanpham VARCHAR(50),
+    giaca INT UNSIGNED NOT NULL,
+    soluong INT UNSIGNED,
+	FOREIGN KEY(makhachhang) REFERENCES khachhang(makhachhang),
+	FOREIGN KEY(masanpham) REFERENCES sanpham(masanpham)
+    
+);
+DELIMITER $$
+create procedure themvaogiohang(magiohang char(8) ,
+	makhachhang char(8),
+	tenkhachhang varchar(50),
+    diachi varchar(100) ,
+	sodienthoai int(10),
+    email varchar(50),
+	masanpham CHAR(8),
+    tensanpham VARCHAR(50),
+    giaca INT ,
+    soluong INT UNSIGNED) 
+begin
+	insert into giohang values (makhachhang,tenkhachhang,diachi, sodienthoai,email,masanpham,tensanpham,giaca,soluong);
+end$$
+DELIMITER ;
 delete FROM khachhang where makhachhang like 'KH000004';
 SELECT * FROM banhang.sanpham ORDER BY sanpham.tensanpham DESC;
 SELECT * FROM banhang.sanpham ORDER BY sanpham.tensanpham ASC;
