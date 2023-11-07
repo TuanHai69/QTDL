@@ -32,10 +32,29 @@
                 include '../view/view_account.php';
                 include '../view/footer.php';
                 break;
+            //Với case act=product_detail thì hiển thị trang chi tiết sản phẩm
             case 'product_detail':
                 include '../view/header.php';
                 include '../view/product_detail.php';
                 include '../view/footer.php';
+                break;
+            //Với case act=delete_product thì chuyển sang trang code xử lý xóa sản phẩm
+            case 'delete_product':
+                include '../xuly/delete_product.php';
+                break;
+            //Với case act=update_product thì hiển thị trang cập nhật sản phẩm
+            case 'update_product':
+                include '../view/header.php';
+                include '../view/update_product.php';
+                include '../view/footer.php';
+                break;
+            //Với case act=code_update_product thì chuyển sang trang code xử lý cập nhật sản phẩm
+            case 'code_update_product';
+                include '../xuly/code_update_product.php';
+                break;
+            //Với case act=add_cart thì chuyển sang trang code xử lý thêm vào giỏ hàng
+            case 'add_cart';
+                include '../xuly/add_cart.php';
                 break;
             case 'update_level':
                 include '../xuly/updatecapdo.php';

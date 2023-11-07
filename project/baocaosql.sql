@@ -25,8 +25,7 @@ create table khachhang (
     diachi varchar(100) not null,
 	sodienthoai int(10),
     email varchar(50),
-    capdo char(1) default(0)
-);
+    capdo char(1) default 0);
 
 insert into khachhang (makhachhang, tenkhachhang, matkhau, diachi, sodienthoai, email, capdo) values ('KH000001', 'Khách hàng 1', '11111111', 'Ninh kiều Cần thơ', '0909091212', 'khachhang@gmail.com', '1');
 insert into khachhang (makhachhang, tenkhachhang, matkhau, diachi, sodienthoai, email, capdo) values ('KH000002', 'Khách hàng 2', '22222222', 'Ninh kiều Cần thơ', '0909091212', 'khachhang@gmail.com', '0');
@@ -37,8 +36,8 @@ insert into khachhang (makhachhang, tenkhachhang, matkhau, diachi, sodienthoai, 
 create table donhang (
 	sodonhang char(8) primary key,
     ngaydathang date,
+    masanpham CHAR(8),
     makhachhang char(8),
-	masanpham char(8),
 	FOREIGN KEY(makhachhang) REFERENCES khachhang(makhachhang),
 	FOREIGN KEY(masanpham) REFERENCES sanpham(masanpham)
 );
@@ -52,7 +51,6 @@ create	table giaohang (
 	magiaohang	char(8) primary key,
     diachigiao varchar(50),
     sodonhang char(8),
-    sanphamduocdat varchar(50),
     tientrinhgiao varchar(20),
 	FOREIGN KEY(sodonhang) REFERENCES donhang(sodonhang)
 );
@@ -118,36 +116,33 @@ begin
 		signal sqlstate '01000';
     end if;
 end;
-create table giohang (
-	magiohang char(8) primary key,
-	makhachhang char(8),
-	tenkhachhang varchar(50),
-    diachi varchar(100) not null,
-	sodienthoai int(10),
-    email varchar(50),
-	masanpham CHAR(8),
+
+CREATE TABLE giohang(
+	magiohang char(8),
+    makhachhang char(8),
+    masanpham CHAR(8),
     tensanpham VARCHAR(50),
     giaca INT UNSIGNED NOT NULL,
     soluong INT UNSIGNED,
-	FOREIGN KEY(makhachhang) REFERENCES khachhang(makhachhang),
-	FOREIGN KEY(masanpham) REFERENCES sanpham(masanpham)
-    
-);
+    primary key (magiohang, makhachhang, masanpham),
+    constraint fk_1 foreign key (makhachhang) references khachhang(makhachhang),
+    constraint fk_2 foreign key (masanpham) references sanpham(masanpham));
+
 DELIMITER $$
-create procedure themvaogiohang(magiohang char(8) ,
+create procedure themvaogiohang(
+	magiohang char(8),
 	makhachhang char(8),
-	tenkhachhang varchar(50),
-    diachi varchar(100) ,
-	sodienthoai int(10),
-    email varchar(50),
 	masanpham CHAR(8),
     tensanpham VARCHAR(50),
-    giaca INT ,
+    giaca INT UNSIGNED,
     soluong INT UNSIGNED) 
 begin
-	insert into giohang values (makhachhang,tenkhachhang,diachi, sodienthoai,email,masanpham,tensanpham,giaca,soluong);
+	insert into giohang values (magiohang, makhachhang, masanpham, tensanpham, giaca, soluong);
 end$$
 DELIMITER ;
-delete FROM khachhang where makhachhang like 'KH000004';
+-- drop procedure themvaogiohang;
+CALL themvaogiohang('KH000001', 'KH000001', 'ABCD0006', 'Áo T-shirt hồng', '1500000', '1');
+
+-- delete FROM khachhang where makhachhang like 'KH000004';
 SELECT * FROM banhang.sanpham ORDER BY sanpham.tensanpham DESC;
 SELECT * FROM banhang.sanpham ORDER BY sanpham.tensanpham ASC;
