@@ -33,7 +33,7 @@
                                                 </thead>
                                                 <tbody>
                                                     <tr>
-                                                        <?php foreach  ?>
+                                                        <?php  ?>
                                                         <th scope="row"><?=$i=$i+1;?></th>
                                                         
                                                         <td>Apple iPhone</td>
