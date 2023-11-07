@@ -1,5 +1,6 @@
 <?php
     $statement = $conn->prepare("SELECT * FROM banhang.giohang");
+    $statement->execute();
     $i = 0;
 ?>
 <div class="container">                
@@ -32,21 +33,22 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                    <?php while($results = $statement->fetch(PDO::FETCH_ASSOC)) {?>
                                                     <tr>
-                                                        <?php  ?>
                                                         <th scope="row"><?=$i=$i+1;?></th>
                                                         
-                                                        <td>Apple iPhone</td>
-                                                        <td>SP0000112</td>
+                                                        <td><?php echo $results["tensanpham"]?></td>
+                                                        <td><?php echo $results["masanpham"]?></td>
                                                         <td>
                                                             <div class="form-group mb-0">
-                                                                <input type="number" class="form-control cart-qty" name="cartQty1" id="cartQty1" value="1">
+                                                                <input type="number" class="form-control cart-qty" name="cartQty1" id="cartQty1" value="<?php echo $results["soluong"]?>">
                                                             </div>
                                                         </td>
-                                                        <td>$10</td>
+                                                        <td><?php echo number_format($results["giaca"])?></td>
                                                         <td class="text-right">$500</td>
                                                         <td><a href="#" class="text-danger"><i class="ri-delete-bin-3-line"></i></a></td>
                                                     </tr>
+                                                    <?php }?>
                                                 </tbody>
                                             </table>
                                         </div>

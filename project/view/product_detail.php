@@ -2,13 +2,21 @@
 
     //Kiểm tra nếu tồn tại button product_detail với phương thức POST
     if (isset($_POST["product_detail"])) {
-        //Gán masanpham vào biến $masanpham
+        //Gán $_POST["masanpham"] vào biến $masanpham
         $masanpham = $_POST["masanpham"];
-        //Truy xuất CSDL
+        //Truy xuất bảng sản phẩm
         $stmt = $conn->prepare('SELECT * FROM banhang.sanpham WHERE masanpham=:masanpham');
         $stmt->bindParam(':masanpham', $masanpham);
         $stmt->execute();
         $results = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        //Gán $_SESSION["id"] vào biến $makhachhang
+        $makhachhang = $_SESSION["id"];
+        //Truy xuất bảng khachhang
+        $stmt1 = $conn->prepare('SELECT * FROM banhang.khachhang WHERE makhachhang=:makhachhang');
+        $stmt1->bindParam(':makhachhang', $makhachhang);
+        $stmt1->execute();
+        $results1 = $stmt1->fetch(PDO::FETCH_ASSOC);
     }
 ?>
 
@@ -72,7 +80,7 @@
         if ($capdo == 0){
             echo '<div class="btn"> 
                     <div class="d-grid gap-2 mx-auto">
-                        <button class="btn btn-primary" name="add_cart" type="button">Thêm vào giỏ hàng</button>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2">Thêm vào giỏ hàng</button>
                     </div>
                 </div>'; 
         }
@@ -141,6 +149,31 @@
             </div>
         </div>
     </form>
+    <!--Modal button thêm vào giỏ hàng -->
+    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Thêm vào giỏ hàng</h1>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-body">
+                        Bạn có chắn chắn muốn thêm sản phẩm này vào giỏ hàng không?
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Không</button>
+                    <form action="index.php?act=add_cart" method="post">
+                        <input type="hidden" name="makhachhang" value="<?=$results1["makhachhang"]?>">
+                        <input type="hidden" name="masanpham" value="<?=$results["masanpham"]?>">
+                        <input type="hidden" name="tensanpham" value="<?=$results["tensanpham"]?>">
+                        <input type="hidden" name="giaca" value="<?=$results["giaca"]?>">
+                        <button type="submit" name="add_cart" class="btn btn-success">Thêm vào giỏ hàng</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

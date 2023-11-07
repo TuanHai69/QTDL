@@ -52,6 +52,10 @@
             case 'code_update_product';
                 include '../xuly/code_update_product.php';
                 break;
+            //Với case act=add_cart thì chuyển sang trang code xử lý thêm vào giỏ hàng
+            case 'add_cart';
+                include '../xuly/add_cart.php';
+                break;
             case 'update_level':
                 include '../xuly/updatecapdo.php';
                 break;

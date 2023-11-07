@@ -26,13 +26,13 @@
 
                 echo '<script type="text/javascript">';
                 echo 'alert("Cập nhật sản phẩm thành công");';
-                echo 'window.location.href="index.php?act=homapage";'; 
+                echo 'window.location.href="index.php?act=homepage";'; 
                 echo '</script>';
             }
         } else {
             echo '<script type="text/javascript">';
             echo 'alert("Bạn không phải là admin");';
-            echo 'window.location.href="index.php?act=homapage";'; 
+            echo 'window.location.href="index.php?act=homepage";'; 
             echo '</script>';
         }
     } else {
