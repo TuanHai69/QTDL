@@ -44,6 +44,7 @@
                 unset($_SESSION['user']);
                 $_SESSION['capdo']='0';
                 include "../view/header.php";
+                include '../xuly/xapxepdefault.php';
                 include "../view/home.php";
                 include '../view/footer.php';
                 break;

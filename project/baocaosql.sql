@@ -118,5 +118,6 @@ begin
 		signal sqlstate '01000';
     end if;
 end;
+delete FROM khachhang where makhachhang like 'KH000004';
 SELECT * FROM banhang.sanpham ORDER BY sanpham.tensanpham DESC;
 SELECT * FROM banhang.sanpham ORDER BY sanpham.tensanpham ASC;
