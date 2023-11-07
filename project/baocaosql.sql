@@ -38,7 +38,6 @@ create table donhang (
 	sodonhang char(8) primary key,
     ngaydathang date,
     makhachhang char(8),
-	masanpham char(8),
 	FOREIGN KEY(makhachhang) REFERENCES khachhang(makhachhang),
 	FOREIGN KEY(masanpham) REFERENCES sanpham(masanpham)
 );
@@ -52,7 +51,6 @@ create	table giaohang (
 	magiaohang	char(8) primary key,
     diachigiao varchar(50),
     sodonhang char(8),
-    sanphamduocdat varchar(50),
     tientrinhgiao varchar(20),
 	FOREIGN KEY(sodonhang) REFERENCES donhang(sodonhang)
 );
@@ -119,19 +117,12 @@ begin
     end if;
 end;
 create table giohang (
-	magiohang char(8) primary key,
-	makhachhang char(8),
-	tenkhachhang varchar(50),
-    diachi varchar(100) not null,
-	sodienthoai int(10),
-    email varchar(50),
+	sodonhang char(8)
 	masanpham CHAR(8),
-    tensanpham VARCHAR(50),
     giaca INT UNSIGNED NOT NULL,
     soluong INT UNSIGNED,
-	FOREIGN KEY(makhachhang) REFERENCES khachhang(makhachhang),
+	FOREIGN KEY(sodonhang) REFERENCES donhang(sodonhang),
 	FOREIGN KEY(masanpham) REFERENCES sanpham(masanpham)
-    
 );
 DELIMITER $$
 create procedure themvaogiohang(magiohang char(8) ,
@@ -145,7 +136,7 @@ create procedure themvaogiohang(magiohang char(8) ,
     giaca INT ,
     soluong INT UNSIGNED) 
 begin
-	insert into giohang values (makhachhang,tenkhachhang,diachi, sodienthoai,email,masanpham,tensanpham,giaca,soluong);
+	insert into giohang values (makhachhang,tenkhachhang,diachi, sodienthoai,ethemvaogiohangmail,masanpham,tensanpham,giaca,soluong);
 end$$
 DELIMITER ;
 delete FROM khachhang where makhachhang like 'KH000004';

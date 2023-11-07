@@ -1,5 +1,7 @@
 <?php
-?><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css">
+    $statement = $conn->prepare("SELECT * FROM banhang.giohang");
+    $i = 0;
+?>
 <div class="container">                
 <div class="contentbar">                
         <!-- Start row -->
@@ -31,7 +33,8 @@
                                                 </thead>
                                                 <tbody>
                                                     <tr>
-                                                        <th scope="row">1</th>
+                                                        <?php foreach  ?>
+                                                        <th scope="row"><?=$i=$i+1;?></th>
                                                         
                                                         <td>Apple iPhone</td>
                                                         <td>SP0000112</td>
@@ -42,36 +45,6 @@
                                                         </td>
                                                         <td>$10</td>
                                                         <td class="text-right">$500</td>
-                                                        <td><a href="#" class="text-danger"><i class="ri-delete-bin-3-line"></i></a></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">2</th>
-                                                      
-                                                     
-                                                        <td>Apple iPhone</td>
-                                                        <td>SP0000112</td>
-                                                        <td>
-                                                            <div class="form-group mb-0">
-                                                                <input type="number" class="form-control cart-qty" name="cartQty2" id="cartQty2" value="1">
-                                                            </div>
-                                                        </td>
-                                                        <td>$20</td>
-                                                        <td class="text-right">$200</td>
-                                                        <td><a href="#" class="text-danger"><i class="ri-delete-bin-3-line"></i></a></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">3</th>
-                                                       
-                                                       
-                                                        <td>Apple iPad</td>
-                                                        <td>SP0000112</td>
-                                                        <td>
-                                                            <div class="form-group mb-0">
-                                                                <input type="number" class="form-control cart-qty" name="cartQty3" id="cartQty3" value="1">
-                                                            </div>
-                                                        </td>
-                                                        <td>$30</td>
-                                                        <td class="text-right">$300</td>
                                                         <td><a href="#" class="text-danger"><i class="ri-delete-bin-3-line"></i></a></td>
                                                     </tr>
                                                 </tbody>
