@@ -80,10 +80,10 @@
         else if ($capdo == 1){
             echo '<div class="btn">
                     <div class="d-grid gap-2 d-md-block">
-                        <button class="btn btn-primary" name="update_product" type="button">Cập nhật sản phẩm</button>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1">Cập nhật sản phẩm</button>
                     </div>
                     <div class="d-grid gap-2 d-md-block">
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Xóa sản phẩm</button>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Xóa sản phẩm</button>
                     </div>
                 </div>'
           ;
@@ -108,12 +108,34 @@
                     <div class="modal-body">
                         <input type="hidden" name="masanpham" value="<?=$results["masanpham"]?>">
                         <div class="modal-body">
-                            Bạn có chắn chắn muôn xóa sản phẩm này không?
+                            Bạn có chắn chắn muốn xóa sản phẩm này không?
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Không</button>
                         <button type="submit" name="delete_product" class="btn btn-danger">Xóa sản phẩm</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <!--Modal button cập nhật sản phẩm -->
+    <form action="index.php?act=update_product" method="post">
+        <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Cập nhật sản phẩm</h1>
+                    </div>
+                    <div class="modal-body">
+                        <input type="hidden" name="masanpham" value="<?=$results["masanpham"]?>">
+                        <div class="modal-body">
+                            Bạn có chắn chắn muốn cập nhật sản phẩm này không?
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Không</button>
+                        <button type="submit" name="update_product" class="btn btn-success">Cập nhật sản phẩm</button>
                     </div>
                 </div>
             </div>

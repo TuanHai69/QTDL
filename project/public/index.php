@@ -42,6 +42,16 @@
             case 'delete_product':
                 include '../xuly/delete_product.php';
                 break;
+            //Với case act=update_product thì hiển thị trang cập nhật sản phẩm
+            case 'update_product':
+                include '../view/header.php';
+                include '../view/update_product.php';
+                include '../view/footer.php';
+                break;
+            //Với case act=code_update_product thì chuyển sang trang code xử lý cập nhật sản phẩm
+            case 'code_update_product';
+                include '../xuly/code_update_product.php';
+                break;
             case 'update_level':
                 include '../xuly/updatecapdo.php';
                 break;
