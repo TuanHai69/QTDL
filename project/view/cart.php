@@ -1,4 +1,6 @@
 <?php
+
+
 ?><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css">
 <div class="container">                
 <div class="contentbar">                
@@ -33,7 +35,7 @@
                                                     <tr>
                                                         <th scope="row">1</th>
                                                         
-                                                        <td>Apple iPhone</td>
+                                                        <td></td>
                                                         <td>SP0000112</td>
                                                         <td>
                                                             <div class="form-group mb-0">

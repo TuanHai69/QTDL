@@ -1,17 +1,14 @@
 <?php 
-    
-    if ( isset($_GET['madonhang'])){
-        $query = 'select * from donhang join sanpham on donhang.masanpham = sanpham.masanpham
-        join khachhang on donhang.makhachhang = khachhang.makhachhang where madonhang=?' ;
-        try {
-            $statement = $pdo->prepare($query);
-            $statement->execute([$_GET['madonhang']]);
-            $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-            echo'111111';
-        } catch (PDOException $e) {
-            $error_message='không thể lấy dữ liệu';
-            $pdo_error = $e->getMessage();
-        }}
+    $random = strtoupper(substr(md5(mt_rand()), 0, 8));
+    if (isset($_POST["thanhtoan"])) {
+        $masanpham = $_POST["masanpham"];
+        $s = $conn->prepare('SELECT * FROM banhang.sanpham WHERE masanpham=:masanpham');
+      
+       
+        $s->bindParam(':masanpham', $masanpham);
+        $s->execute();
+        $r = $s->fetch(PDO::FETCH_ASSOC);
+    }
      
         ?>  
     
@@ -21,7 +18,7 @@
           <input type="hidden" name="" value="">
 
           <div class="py-5 text-center">
-              <h2>Thanh toán</h2>
+                <h2 >Thanh toán</h2>
               <p class="lead">Vui lòng kiểm tra thông tin Khách hàng, thông tin Giỏ hàng trước khi Đặt hàng.</p>
           </div>
 
@@ -35,17 +32,19 @@
                       <li class="list-group-item d-flex justify-content-between lh-condensed">
                           <div>
                               <h6 class="my-0">Tên SP</h6>
-                              <small class="text-muted">Giá x SL</small>
-                              <button>x</button>
+                              <small class="text-muted"><?php echo $r["tensanpham"] ?> x 1    </small>
+                            
                           </div>
-                          <span class="text-muted">GIá</span>
+                          <span class="text-muted"> <?php echo $r["giaca"] ?>  </span>
+                         
+
                       </li>
                      
                 
                           
                       <li class="list-group-item d-flex justify-content-between">
                           <span>Tổng thành tiền</span>
-                          <strong>xxx</strong>
+                          <strong><?php echo $r["giaca"] ?></strong>
                       </li>
                   </ul>
 
@@ -60,22 +59,22 @@
                       <div class="col-md-12">
                           <label for="kh_ten">Họ tên</label>
                           <input type="text" class="form-control" name="kh_ten" id="kh_ten"
-                              value="<?=htmlspecialchars($result->kh_ten)?>" >
+                              value=" <?php echo $r["giaca"] ?>" >
                       </div>
                       <div class="col-md-12">
                           <label for="kh_diachi">Địa chỉ</label>
                           <input type="text" class="form-control" name="kh_diachi" id="kh_diachi"
-                              value="<?=htmlspecialchars($result->kh_diachi)?>" >
+                              value="fdfd" >
                       </div>
                       <div class="col-md-12">
                           <label for="kh_dienthoai">Điện thoại</label>
                           <input type="text" class="form-control" name="kh_dienthoai" id="kh_dienthoai"
-                              value="<?=htmlspecialchars($result->kh_dienthoai)?>" >
+                              value=" 01220>" >
                       </div>
                       <div class="col-md-12">
                           <label for="kh_email">Email</label>
                           <input type="text" class="form-control" name="kh_email" id="kh_email"
-                              value="<?=htmlspecialchars($result->kh_email)?>" >
+                              value="fdfd" >
                       </div>
                   </div>
 

@@ -76,15 +76,15 @@
                     <td></td>
                     <td><?= htmlspecialchars($result['giaca'])?></td>
                     <td></td>
-                    <form action="" method="post">
+                    <form action="index.php?act=checkout" method="post">
                         <input type="hidden" name="masanpham" value=<?= htmlspecialchars($result['masanpham'])?>>
-                        <td><button class="btn btn-info" type="submit">Mua ngay</button></td>
+                        <td><button class="btn btn-info" type="submit" name="thanhtoan">Mua ngay</button></td>
                     </form>
-                    <!-- <form action="" method="post"> -->
-                        <!-- <input type="hidden" name="masanpham" value=<?= htmlspecialchars($result['masanpham'])?>> -->
-                        <td><a href='index.php?act=product_detail&&id=<?=$results['masanpham']?>' class="btn btn-primary"
-                            role="button" data-bs-toggle="button">Đặt hàng</a></td>
-                    <!-- </form> -->
+                     <form action="index.php?act=add_to_cart" method="post"> 
+                         <input type="hidden" name="addcart" value=<?= htmlspecialchars($result['masanpham'])?>>
+                        <td><button class="btn btn-primary"
+                            type="submit" name="addcart" >Thêm vào giỏ hàng</button></td>
+                     </form> 
 
                     <form action="index.php?act=product_detail" method="post">
                         <input type="hidden" name="masanpham" value=<?= htmlspecialchars($result['masanpham'])?>>
