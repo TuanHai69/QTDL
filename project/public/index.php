@@ -32,10 +32,15 @@
                 include '../view/view_account.php';
                 include '../view/footer.php';
                 break;
+            //Với case act=product_detail thì hiển thị trang chi tiết sản phẩm
             case 'product_detail':
                 include '../view/header.php';
                 include '../view/product_detail.php';
                 include '../view/footer.php';
+                break;
+            //Với case act=delete_product thì chuyển sang trang code xử lý xóa sản phẩm
+            case 'delete_product':
+                include '../xuly/delete_product.php';
                 break;
             case 'update_level':
                 include '../xuly/updatecapdo.php';

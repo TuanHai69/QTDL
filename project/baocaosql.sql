@@ -25,8 +25,7 @@ create table khachhang (
     diachi varchar(100) not null,
 	sodienthoai int(10),
     email varchar(50),
-    capdo char(1) default(0)
-);
+    capdo char(1) default 0);
 
 insert into khachhang (makhachhang, tenkhachhang, matkhau, diachi, sodienthoai, email, capdo) values ('KH000001', 'Khách hàng 1', '11111111', 'Ninh kiều Cần thơ', '0909091212', 'khachhang@gmail.com', '1');
 insert into khachhang (makhachhang, tenkhachhang, matkhau, diachi, sodienthoai, email, capdo) values ('KH000002', 'Khách hàng 2', '22222222', 'Ninh kiều Cần thơ', '0909091212', 'khachhang@gmail.com', '0');
@@ -117,7 +116,7 @@ begin
     end if;
 end;
 create table giohang (
-	sodonhang char(8)
+	sodonhang char(8),
 	masanpham CHAR(8),
     giaca INT UNSIGNED NOT NULL,
     soluong INT UNSIGNED,
