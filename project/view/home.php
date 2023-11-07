@@ -1,9 +1,5 @@
 <?php
-    // $statement = $conn->prepare('SELECT * FROM banhang.sanpham');
-    // $statement->execute();
-    // $results = $statement->fetchAll();
     $i=0;
-    //  htmlspecialchars($result['masanpham'])
 ?>
 <div class="container">
     <hr>
@@ -87,12 +83,12 @@
                     <!-- <form action="" method="post"> -->
                         <!-- <input type="hidden" name="masanpham" value=<?= htmlspecialchars($result['masanpham'])?>> -->
                         <td><a href='index.php?act=product_detail&&id=<?=$results['masanpham']?>' class="btn btn-primary"
-                            role="button" data-bs-toggle="button">Xem chi tiết</a></td>
+                            role="button" data-bs-toggle="button">Đặt hàng</a></td>
                     <!-- </form> -->
 
                     <!-- <form action="" method="post"> -->
                     <!-- <input type="hidden" name="masanpham" value=> -->
-                    <td><a href='index.php?act=product_detail&&id=<?=$results['masanpham']?>' class="btn btn-primary"
+                    <td><a href='index.php?act=product_detail&&id=<?=$results['masanpham']?>' class="btn btn-info"
                             role="button" data-bs-toggle="button">Xem chi tiết</a></td>
                     <!-- </form> -->
                 </tr>
