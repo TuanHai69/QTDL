@@ -10,6 +10,7 @@
         $stmt->execute();
         $results = $stmt->fetch(PDO::FETCH_ASSOC);
 
+        if (isset($_SESSION["id"]) ) {
         //Gán $_SESSION["id"] vào biến $makhachhang
         $makhachhang = $_SESSION["id"];
         //Truy xuất bảng khachhang
@@ -17,6 +18,7 @@
         $stmt1->bindParam(':makhachhang', $makhachhang);
         $stmt1->execute();
         $results1 = $stmt1->fetch(PDO::FETCH_ASSOC);
+    }   
     }
 ?>
 
