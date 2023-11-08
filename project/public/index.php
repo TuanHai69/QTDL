@@ -145,7 +145,9 @@
                 include '../view/cart.php';
                 include '../view/footer.php';
                 break;
-            
+            case 'updateslsp';
+                include '../xuly/updateslsp.php';
+                break;
             // Hiển thị trang thanh toán
             case 'checkout':
                 include '../view/header.php';

@@ -8,9 +8,9 @@ if (isset($_POST["submit"])) {
     $statement->bindParam(':masp', $_POST['ma']);
     $statement->execute();
         
-        echo '<script type="text/javascript">';
-        echo 'alert("Đã xóa sản phẩm vào giỏ hàng thành công");';
-        echo 'window.location.href="index.php?act=cart"'; 
-        echo '</script>';
+    echo '<script type="text/javascript">';
+    echo 'alert("Đã xóa sản phẩm vào giỏ hàng thành công");';
+    echo 'window.location.href="index.php?act=cart"'; 
+    echo '</script>';
 }
 ?>
