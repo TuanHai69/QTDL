@@ -6,27 +6,34 @@
 
     if (isset($_GET['act'])) {
         switch ($_GET['act']) {
+            // Với case act=dangnhap thì chuyển sang trang đăng nhập
             case 'dangnhap':
                 include '../view/header.php';
                 include '../view/login.php';
                 include '../view/footer.php';
                 break;
+            // Khi đang ở trang đăng nhập (Nhập đầy đủ thông tin) sẽ chuyển các thông tin qua form xử lý đến trang login.php ở bên thư mục xử lý
             case 'login':
                 include '../xuly/login.php';
                 break;
+            // Với case act=profile thì trang sẽ chuyển sang trang profile của khách hàng (Chỉ khách hàng mới xem được trang này)
             case 'profile':
                 include '../view/header.php';
                 include '../view/profile.php';
                 include '../view/footer.php';
                 break;
+            // Khi khách hàng chọn edit_profile trong trang profile thì sẽ chuyển sang trang profile
             case 'edit_profile':
                 include '../view/header.php';
                 include '../view/edit_profile.php';
                 include '../view/footer.php';
                 break;
+            // Khi khách hàng đã thay đổi thông tin xong khi bấm vào SAVE PROFILE thì sẽ lưu lại thông tin (Điều kiện : Nhập đúng mật khẩu)
             case 'update_profile':
                 include '../xuly/update_profile.php';
                 break;
+            // Khi ADMIN bấm vào accounts setting thì có thể xem được danh sách các tài khoản trong CSDL và có quyền thay đổi các quyền của tài 
+            // khoản này
             case 'view_account':
                 include '../view/header.php';
                 include '../view/view_account.php';
