@@ -80,7 +80,7 @@
                   
                   <hr class="mb-4">
                   <form action="index.php?act=thanhtoan" method="POST">
-                        <input type="hidden" name="magh" value=<?= htmlspecialchars($results[$i]['magiohang'])?>>
+                        <input type="hidden" name="magh" value='<?= htmlspecialchars($results[$i]['magiohang'])?>'>
                         <button class="btn btn-primary btn-lg btn-block"  name="submit">Đặt hàng</button>
                   </form>
                  
