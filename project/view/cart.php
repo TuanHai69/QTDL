@@ -1,5 +1,6 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css">
 <div class="container">
-    <div class="">
+    <div class="contentbar">
         <!-- Start row -->
         <div class="row">
             <!-- Start col -->
@@ -30,7 +31,7 @@
                                                 </thead>
 
                                                 <tbody>
-                                                    <?php foreach ($results as $result) {?>
+                                                    <?php foreach ($results as $result): ?>
                                                         <tr>
                                                             <th scope="row"><?=$i=$i+1;?></th>
 
@@ -48,15 +49,21 @@
                                                                     name="cartQty1" id="cartQty1"
                                                                     value="<?= htmlspecialchars($result["soluong"]  )?>">
                                                             </td>
+                                                            <td><?php echo number_format($result["giaca"])?></td>
+
+                                                            <td class="text-right">
+                                                                <?= $subtotal = $result["giaca"]*$result["soluong"]; $total+=$subtotal; ?>
+                                                            </td>
+
                                                             <td>
                                                                 <form action="index.php?act=cart_remove" method="POST">
                                                                     <input type="hidden" name="ma" value=<?=htmlspecialchars($result['masanpham'])?>>
-                                                                    <input type="hidden" name="magh" value=<?= htmlspecialchars($result['masanpham'])?>>
+                                                                    <input type="hidden" name="magh" value=<?= htmlspecialchars($result['magiohang'])?>>
                                                                     <button class="text-danger" name="submit"><i class="ri-delete-bin-3-line"></i></button>
                                                                 </form>
                                                             </td>
                                                         </tr>
-                                                    <?php }?>
+                                                    <?php endforeach ?>
                                                 </tbody>
                                             </table>
                                         </div>
