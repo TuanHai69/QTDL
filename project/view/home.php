@@ -50,7 +50,6 @@
                     <th scope="col-2">Tên sản phẩm</th>
                     <th></th>
                     <th scope="col">Giá</th>
-                    <th scope="col"></th>
                     <th scope="col">
                         <?php
                         if (isset($_SESSION['capdo'])){
@@ -64,11 +63,6 @@
 
                     </th>
                     <th scope="col">
-                        <?php
-                        // if ($_SESSION['capdo']==1){
-                        //     echo '<a href="index.php?act=add_product">Xóa sản phẩm</a>';
-                        // }                        
-                    ?>
                     </th>
                 </tr>
             </thead>
@@ -82,11 +76,7 @@
                     <td></td>
                     <?php
                         if (isset($_SESSION['capdo'])){
-                            echo '<form action="index.php?act=checkout" method="post">';
-                            echo '<input type="hidden" name="masanpham" value=';
-                                echo htmlspecialchars($result['masanpham']);
-                            echo '><td><button class="btn btn-info" type="submit1" name="thanhtoan">Mua ngay</button></td>
-                            </form>';
+
                             echo '<form action="index.php?act=add_cart" method="post">
                                 <input type="hidden" name="makhachhang" value="';
                                 echo $_SESSION['id'];
@@ -102,9 +92,7 @@
                             echo '">
                             <td><button type="submit2" name="add_cart" class="btn btn-info">Thêm vào giỏ hàng</button></td>
                             </form>';
-                        }else{
-                            echo '<td><a href="index.php?act=chuyendangnhap" class="btn btn-info" role="button" >Mua ngay</a></td>';
-                            
+                        }else{       
                             echo '<td><a href="index.php?act=chuyendangnhap" class="btn btn-info" role="button" >Thêm vào giỏ hàng</a></td>';
                         }
                     ?>
