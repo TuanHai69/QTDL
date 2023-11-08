@@ -138,18 +138,20 @@
             case 'add_SP':
                 include '../xuly/add_product.php';
                 break;
+            // Hiển thị trang giỏ hàng
             case 'cart':
                 include '../view/header.php';
                 include '../xuly/check_out.php';
                 include '../view/cart.php';
                 include '../view/footer.php';
                 break;
+            // Hiển thị trang thanh toán
             case 'checkout':
                 include '../view/header.php';
                 include '../xuly/check_out.php';
                 include '../view/checkout.php';
                 include '../view/footer.php';
-                break;  
+                break;
             default:
                 include '../view/header.php';
                 include '../xuly/xapxepdefault.php';
