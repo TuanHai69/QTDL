@@ -24,44 +24,53 @@
                                                         <th scope="col">Số lượng</th>
                                                         <th scope="col">Giá</th>
                                                         <th scope="col" class="text-right">Tổng</th>
-                                                        <th scope="col">Xóa</th>
                                                         <th scope="col">Cập nhật</th>
+                                                        <th scope="col">Xóa</th>
+
                                                     </tr>
                                                 </thead>
 
                                                 <tbody>
                                                     <?php foreach ($results as $result): ?>
-                                                        <tr>
-                                                            <th scope="row"><?=$i=$i+1;?></th>
+                                                    <tr>
+                                                        <th scope="row"><?=$i=$i+1;?></th>
 
-                                                            <td><?= htmlspecialchars($result["tensanpham"]  )?></td>
-                                                            <td><?= htmlspecialchars($result["masanpham"]  )?></td>
-                                                            <td>
-                                                                <div class="form-group mb-0">
-                                                                    <input type="number" class="form-control cart-qty"
-                                                                        name="cartQty1" id="cartQty1"
-                                                                        value="<?= htmlspecialchars($result["soluong"]  )?>">
-                                                                </div>
-                                                            </td>
-                                                            <td>
+                                                        <td><?= htmlspecialchars($result["tensanpham"]  )?></td>
+                                                        <td><?= htmlspecialchars($result["masanpham"]  )?></td>
+                                                    <form action="index.php?act=updateslsp" method="post">
+                                                            <input type="hidden" name="ma"
+                                                                value=<?=htmlspecialchars($result['masanpham'])?>>
+                                                            <input type="hidden" name="magh"
+                                                                value=<?= htmlspecialchars($result['magiohang'])?>>
+                                                        <td>
+                                                            <div class="form-group mb-0">
                                                                 <input type="number" class="form-control cart-qty"
-                                                                    name="cartQty1" id="cartQty1"
+                                                                    name="sl" id="cartQty1"
                                                                     value="<?= htmlspecialchars($result["soluong"]  )?>">
-                                                            </td>
-                                                            <td><?php echo number_format($result["giaca"])?></td>
+                                                            </div>
+                                                        </td>
 
-                                                            <td class="text-right">
-                                                                <?= $subtotal = $result["giaca"]*$result["soluong"]; $total+=$subtotal; ?>
-                                                            </td>
+                                                        <td><?php echo number_format($result["giaca"])?></td>
 
-                                                            <td>
-                                                                <form action="index.php?act=cart_remove" method="POST">
-                                                                    <input type="hidden" name="ma" value=<?=htmlspecialchars($result['masanpham'])?>>
-                                                                    <input type="hidden" name="magh" value=<?= htmlspecialchars($result['magiohang'])?>>
-                                                                    <button class="text-danger" name="submit"><i class="ri-delete-bin-3-line"></i></button>
-                                                                </form>
-                                                            </td>
-                                                        </tr>
+                                                        <td class="text-right">
+                                                            <?= $subtotal = $result["giaca"]*$result["soluong"]; $total+=$subtotal; ?>
+                                                        </td>
+                                                        <td>
+                                                            <button name="submit" type="submit"><i class="fa fa-check"></i></button>
+                                                        </td>
+                                                        </form>
+                                                        <td>
+                                                            <form action="index.php?act=cart_remove" method="POST">
+                                                                <input type="hidden" name="ma"
+                                                                    value=<?=htmlspecialchars($result['masanpham'])?>>
+                                                                <input type="hidden" name="magh"
+                                                                    value=<?= htmlspecialchars($result['magiohang'])?>>
+                                                                <button class="text-danger" name="submit"><i
+                                                                        class="ri-delete-bin-3-line"></i></button>
+                                                            </form>
+                                                        </td>
+
+                                                    </tr>
                                                     <?php endforeach ?>
                                                 </tbody>
                                             </table>
@@ -109,25 +118,19 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="container cart-footer text-right">
-                                        <div class='row'>
-                                            <a class="btn btn-info my-1 col" href="index.php?act=homepage"> Sản phẩm
-                                                khác </a>
-                                            <!-- <a href="page-checkout.html" class="btn btn-success my-1">Thanh toán<i class="ri-arrow-right-line ml-2"></i></a> -->
-                                            <form action="index.php?act=checkout" method="post" class='col'>
-                                                <input type="hidden" name="masanpham"
-                                                    value= >
-                                                <button class="btn btn-success my-1" type="submit"
-                                                    name="thanhtoan">Thanh toán</button>
-                                            </form>
 
-                                        </div>
-
-                                    </div>
                                 </div>
+
                             </div>
                         </div>
+                        <div class='row justify-content-start'>
+                            <a class="btn btn-info my-1 col-3 offset-3" href="index.php?act=homepage"> Sản phẩm
+                                khác </a>
+                            <a href="index.php?act=checkout" class="btn btn-info offset-1 col-3" role="button">Thêm vào giỏ
+                                hàng</a>
+                        </div>
                     </div>
+
                 </div>
             </div>
             <!-- End col -->
