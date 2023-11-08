@@ -166,12 +166,16 @@
             case 'chuyendangnhap':
                 include '../xuly/chuyentrang.php';
                 break;
+            case 'thanhtoan':
+                include '../xuly/thanhtoan.php';
+                break; 
             default:
                 include '../view/header.php';
                 include '../xuly/xapxepdefault.php';
                 include '../view/home.php';
                 include '../view/footer.php';
                 break; 
+            
         }
     } else {
         include '../view/header.php';

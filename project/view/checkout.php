@@ -79,8 +79,11 @@
 
                   
                   <hr class="mb-4">
-                  <button class="btn btn-primary btn-lg btn-block" type="submit" name="btnDatHang">Đặt
-                      hàng</button>
+                  <form action="index.php?act=thanhtoan" method="POST">
+                        <input type="hidden" name="magh" value=<?= htmlspecialchars($results[$i]['magiohang'])?>>
+                        <button class="btn btn-primary btn-lg btn-block"  name="submit">Đặt hàng</button>
+                  </form>
+                 
               </div>
           </div>
       </form>
