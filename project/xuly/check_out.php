@@ -1,8 +1,7 @@
 <?php
     
-    $statementc= $conn->prepare("SELECT * from banhang.giohang
-      where giohang.makhachhang = :makhachhang");
-    $statementf = $conn->prepare("SELECT khachhang.tenkhachhang, khachhang.diachi,khachhang.sodienthoai,khachhang.email,khachhang.makhachhang
+    $statementc= $conn->prepare("SELECT * from banhang.giohang where giohang.makhachhang = :makhachhang");
+    $statementf = $conn->prepare("SELECT khachhang.tenkhachhang, khachhang.diachi,khachhang.sodienthoai,khachhang.email
      from banhang.khachhang 
       where khachhang.makhachhang = :makhachhang");
     

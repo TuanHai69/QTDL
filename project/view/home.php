@@ -67,40 +67,44 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ( $results as $result ): ?>
+                <?php foreach ($results as $result): ?>
                 <tr>
                     <th scope="row"><?= $i=$i+1 ?></th>
                     <td><?= htmlspecialchars($result['tensanpham'])?></td>
                     <td></td> 
                     <td><?= htmlspecialchars($result['giaca'])?></td>
                     <td></td>
+                    
                     <?php
                         if (isset($_SESSION['capdo'])){
 
-                            echo '<form action="index.php?act=add_cart" method="post">
-                                <input type="hidden" name="makhachhang" value="';
-                                echo $_SESSION['id'];
-                            echo ' ">
-                            <input type="hidden" name="masanpham" value="';
-                            echo htmlspecialchars($result["masanpham"]);
-                            echo '">
-                            <input type="hidden" name="tensanpham" value="';
-                            echo htmlspecialchars($result["tensanpham"]);
-                            echo '">
-                            <input type="hidden" name="giaca" value="';
-                            echo htmlspecialchars($result["giaca"]);
-                            echo '">
-                            <td><button type="submit2" name="add_cart" class="btn btn-info">Thêm vào giỏ hàng</button></td>
-                            </form>';
+                            echo '<td>
+                                    <form action="index.php?act=add_cart" method="post">
+                                        <input type="hidden" name="makhachhang" value="';
+                                        echo $_SESSION['id'];
+                                        echo ' ">
+                                        <input type="hidden" name="masanpham" value="';
+                                        echo htmlspecialchars($result["masanpham"]);
+                                        echo '">
+                                        <input type="hidden" name="tensanpham" value="';
+                                        echo htmlspecialchars($result["tensanpham"]);
+                                        echo '">
+                                        <input type="hidden" name="giaca" value="';
+                                        echo htmlspecialchars($result["giaca"]);
+                                        echo '">
+                                        <button type="submit2" name="add_cart" class="btn btn-info">Thêm vào giỏ hàng</button>
+                                    </form>
+                                </td>';
                         }else{       
                             echo '<td><a href="index.php?act=chuyendangnhap" class="btn btn-info" role="button" >Thêm vào giỏ hàng</a></td>';
                         }
                     ?>
                     <form action="index.php?act=product_detail" method="post">
-                        <input type="hidden" name="masanpham" value=<?= htmlspecialchars($result['masanpham'])?>>
+                        <input type="hidden" name="masanpham" value=<?=$result['masanpham']?>>
                         <td><button class="btn btn-info" name="product_detail" type="submit">Xem chi tiết</button></td>
+                    </form>
                 </tr>
-                <?php endforeach ?>
+                <?php endforeach?>
             </tbody>
         </table>
     </div>

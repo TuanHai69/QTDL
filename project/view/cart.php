@@ -56,12 +56,9 @@
 
                                                             <td>
                                                                 <form action="index.php?act=cart_remove" method="POST">
-                                                                    <input type="hidden" name="ma"
-                                                                        value=<?= htmlspecialchars($result['masanpham'])?>>
-                                                                    <input type="hidden" name="magh"
-                                                                        value=<?= htmlspecialchars($result['masanpham'])?>>
-                                                                    <button class="text-danger" name="submit"><i
-                                                                            class="ri-delete-bin-3-line"></i></button>
+                                                                    <input type="hidden" name="ma" value=<?=htmlspecialchars($result['masanpham'])?>>
+                                                                    <input type="hidden" name="magh" value=<?= htmlspecialchars($result['magiohang'])?>>
+                                                                    <button class="text-danger" name="submit"><i class="ri-delete-bin-3-line"></i></button>
                                                                 </form>
                                                             </td>
                                                         </tr>
