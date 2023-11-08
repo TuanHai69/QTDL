@@ -14,6 +14,6 @@
     	</script>
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css">
 		<link rel="stylesheet" href="../css/all.min.css">
-		<link rel="stylesheet" href="../css/petstore.css">
-		<link rel="stylesheet" href="css/login.css">
+		<link rel="stylesheet" href="/css/store.css">
+		<link rel="stylesheet" href="/css/login.css">
 	</head>
