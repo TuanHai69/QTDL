@@ -7,12 +7,10 @@ if (isset($_POST["submit"])) {
     $statement1->bindParam(":id", $_SESSION['id']);
     $statement1->bindParam(':magh', $_POST['magh']);
     $statement1->execute();
-    echo $_POST['magh'];
-    echo $_POST['ma'];
 
-    // echo '<script type="text/javascript">';
-    // echo 'alert("Đã xóa sản phẩm vào giỏ hàng thành công");';
-    // echo 'window.location.href="index.php?act=cart"'; 
-    // echo '</script>';
+    echo '<script type="text/javascript">';
+    echo 'alert("Đã xóa sản phẩm vào giỏ hàng thành công");';
+    echo 'window.location.href="index.php?act=cart"'; 
+    echo '</script>';
 }
 ?>
