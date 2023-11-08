@@ -53,8 +53,12 @@
                     <th scope="col"></th>
                     <th scope="col">
                         <?php
-                        if ($_SESSION['capdo']==1){
-                            echo '<a href="index.php?act=add_product">Thêm sản phẩm</a>';
+                        if (isset($_SESSION['capdo'])){
+                            if ($_SESSION['capdo'] == '1'){
+                                echo '<a href="index.php?act=add_product">Thêm sản phẩm</a>';
+                            }
+                        }else{
+                            echo '';
                         }
                     ?>
 
@@ -76,17 +80,39 @@
                     <td></td> 
                     <td><?= htmlspecialchars($result['giaca'])?></td>
                     <td></td>
-                    <form action="index.php?act=checkout" method="post">
-                        <input type="hidden" name="masanpham" value=<?= htmlspecialchars($result['masanpham'])?>>
-                        <td><button class="btn btn-info" type="submit" name="thanhtoan">Mua ngay</button></td>
-                    </form>
-                    <form action="index.php?act=add_cart" method="post">
-                        <input type="hidden" name="makhachhang" value="<?=$_SESSION['id']?>">
-                        <input type="hidden" name="masanpham" value="<?=htmlspecialchars($result["masanpham"])?>">
-                        <input type="hidden" name="tensanpham" value="<?=htmlspecialchars($result["tensanpham"])?>">
-                        <input type="hidden" name="giaca" value="<?=htmlspecialchars($result["giaca"])?>">
-                        <td><button type="submit" name="add_cart" class="btn btn-info">Thêm vào giỏ hàng</button></td>
-                    </form>
+                    <?php
+                        if (isset($_SESSION['capdo'])){
+                            echo '<form action="index.php?act=checkout" method="post">
+                            <input type="hidden" name="masanpham" value=';
+                            echo htmlspecialchars($result['masanpham']);
+                            echo '>
+                            <td><button class="btn btn-info" type="submit" name="thanhtoan">Mua ngay</button></td>
+                            </form>';
+                            echo '<form action="index.php?act=add_cart" method="post">
+                            <input type="hidden" name="makhachhang" value="';
+                            echo $_SESSION['id'];
+                            echo ' ">
+                            <input type="hidden" name="masanpham" value="';
+                            echo htmlspecialchars($result["masanpham"]);
+                            echo '">
+                            <input type="hidden" name="tensanpham" value="';
+                            echo htmlspecialchars($result["tensanpham"]);
+                            echo '">
+                            <input type="hidden" name="giaca" value="';
+                            echo htmlspecialchars($result["giaca"]);
+                            echo '">
+                            <td><button type="submit" name="add_cart" class="btn btn-info">Thêm vào giỏ hàng</button></td>
+                            </form>';
+                        }else{
+                            echo '<form action="index.php?act=chuyendangnhap" method="post">
+                            <td><button class="btn btn-info" type="submit" name="thanhtoan">Mua ngay</button></td>
+                            </form>';
+                            
+                            echo '<form action="index.php?act=chuyendangnhap" method="post">
+                            <td><button type="submit" name="add_cart" class="btn btn-info">Thêm vào giỏ hàng</button></td>
+                            </form>';
+                        }
+                    ?>
 
                     <form action="index.php?act=product_detail" method="post">
                         <input type="hidden" name="masanpham" value=<?= htmlspecialchars($result['masanpham'])?>>
