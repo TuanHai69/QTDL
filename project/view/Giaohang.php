@@ -1,8 +1,13 @@
 <?php
-    $statemet = $conn->prepare("SELECT * FROM banhang.giaohang join banhang.donhang on giaohang.sodonhang = donhang.sodonhang WHERE donhang.makhachhang =:ma ")
-    $statemet->bindParam(':ma',$_SESSION['id']);
-    $statemet->execute();
-    $result = $statemet->fetchALL();
+    if (isset($_SESSION['user'])){
+        if ($_SESSION['capdo'] == 1){
+            include '../xuly/xulygiaohang.php';
+        }else{
+            include '../xuly/giaohang.php';
+        }
+    }else{
+        header('Location: index.php?act=homepage');
+    }
 ?>
 <div class="container">
     <div class="row">
@@ -11,52 +16,54 @@
                 <thead>
                     <tr>
                         <th scope="col">STT</th>
-                        <th scope="col-2">Tên sản phẩm</th>
-                        <th></th>
-                        <th scope="col">Giá</th>
+                        <th scope="col-2">Mã Giao hàng</th>
+                        <th scope="col">Mã đơn hàng</th>
+                        <th scope="col">Địa chỉ giao</th>
                         <th scope="col"></th>
-                        <th scope="col">
-                            <?php
-                        if ($_SESSION['capdo']==1){
-                            echo '<a href="index.php?act=add_product">Thêm sản phẩm</a>';
-                        }
-                    ?>
-
-                        </th>
-                        <th scope="col">
-                            <?php
-                        // if ($_SESSION['capdo']==1){
-                        //     echo '<a href="index.php?act=add_product">Xóa sản phẩm</a>';
-                        // }                        
-                    ?>
-                        </th>
+                        <th scope="col"></th>
+                        <th scope="col">Tiến trình giao hàng</th>
+                        <th scope="col">Xác nhận</th>
                     </tr>
                 </thead>
                 <tbody>
+                    
                     <?php foreach ( $results as $result ): ?>
                     <tr>
                         <th scope="row"><?= $i=$i+1 ?></th>
-                        <td><?= htmlspecialchars($result['tensanpham'])?></td>
+                        <td><?= htmlspecialchars($result['magiaohang'])?></td>
+                        <td><?= htmlspecialchars($result['sodonhang'])?></td>
+                        <td><?= htmlspecialchars($result['diachigiao'])?></td>
                         <td></td>
-                        <td><?= htmlspecialchars($result['giaca'])?></td>
                         <td></td>
-                        <form action="index.php?act=checkout" method="post">
-                            <input type="hidden" name="masanpham" value=<?= htmlspecialchars($result['masanpham'])?>>
-                            <td><button class="btn btn-info" type="submit" name="thanhtoan">Mua ngay</button></td>
-                        </form>
-                        <form action="index.php?act=add_cart" method="post">
-                            <input type="hidden" name="makhachhang" value="<?=$_SESSION['id']?>">
-                            <input type="hidden" name="masanpham" value="<?=htmlspecialchars($result["masanpham"])?>">
-                            <input type="hidden" name="tensanpham" value="<?=htmlspecialchars($result["tensanpham"])?>">
-                            <input type="hidden" name="giaca" value="<?=htmlspecialchars($result["giaca"])?>">
-                            <td><button type="submit" name="add_cart" class="btn btn-info">Thêm vào giỏ hàng</button>
-                            </td>
-                        </form>
+                            <?php
+                                if($_SESSION['capdo'] == 1){
+                                    echo '<form action="index.php?act=capnhattientrinh" method="post">';
+                                    echo '<td>';
+                                    echo '<input type="hidden" name="magh" value=';
+                                    echo htmlspecialchars($result['magiaohang']);
+                                    echo '>';
+                                    echo '<select name="tientrinh">';
+                                    if ($result['tientrinhgiao'] == 'đang vận chuyển'){
+                                        echo '<option value="đang vận chuyển">đang vận chuyển</option>';
+                                        echo '<option value="đã giao">đã giao</option>';
+                                    }else{
+                                        echo '<option value="đã giao">đã giao</option>';
+                                        echo '<option value="đang vận chuyển">đang vận chuyển</option>';
+                                    }
+                                    echo '</select>';
+                                    echo '</td>';
+                                    echo '<td>';
 
-                        <form action="index.php?act=product_detail" method="post">
-                            <input type="hidden" name="masanpham" value=<?= htmlspecialchars($result['masanpham'])?>>
-                            <td><button class="btn btn-info" name="product_detail" type="submit">Xem chi tiết</button>
-                            </td>
+                                    echo '<button type="submit" name="submit"><i class="fa fa-check"></i></button>';
+                                    echo '</td>';
+                                    echo '</form>';
+                                }else{
+                                    echo htmlspecialchars($result['tientrinhgiao']);
+                                }
+                                
+                            ?>
+                        </td>
+                        <td></td>
                     </tr>
                     <?php endforeach ?>
                 </tbody>

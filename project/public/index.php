@@ -159,7 +159,10 @@
                 include '../view/header.php';
                 include '../view/Giaohang.php';
                 include '../view/footer.php';
-                break; 
+                break;
+            case 'capnhattientrinh':
+                include '../xuly/CNTT.php';
+                break;
             case 'cart_remove':
                 include '../xuly/remove.php';
                 break;             
