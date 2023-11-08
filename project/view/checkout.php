@@ -1,6 +1,4 @@
-<?php 
-   
-        ?>  
+
     
      <div class="container mt-4">
       <form class="needs-validation" name="frmthanhtoan" method="post"

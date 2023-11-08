@@ -80,11 +80,13 @@
                         <input type="hidden" name="masanpham" value=<?= htmlspecialchars($result['masanpham'])?>>
                         <td><button class="btn btn-info" type="submit" name="thanhtoan">Mua ngay</button></td>
                     </form>
-                     <form action="index.php?act=add_cart" method="post"> 
-                         <input type="hidden" name="addcart" value=<?= htmlspecialchars($result['masanpham'])?>>
-                        <td><button class="btn btn-primary" 
-                            type="submit" name="add_cart" >Thêm vào giỏ hàng</button></td>
-                     </form> 
+                    <form action="index.php?act=add_cart" method="post">
+                        <input type="hidden" name="makhachhang" value="<?=$_SESSION['id']?>">
+                        <input type="hidden" name="masanpham" value="<?=htmlspecialchars($result["masanpham"])?>">
+                        <input type="hidden" name="tensanpham" value="<?=htmlspecialchars($result["tensanpham"])?>">
+                        <input type="hidden" name="giaca" value="<?=htmlspecialchars($result["giaca"])?>">
+                        <td><button type="submit" name="add_cart" class="btn btn-info">Thêm vào giỏ hàng</button></td>
+                    </form>
 
                     <form action="index.php?act=product_detail" method="post">
                         <input type="hidden" name="masanpham" value=<?= htmlspecialchars($result['masanpham'])?>>
