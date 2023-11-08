@@ -157,7 +157,14 @@
                 include '../xuly/check_out.php';
                 include '../view/cart.php';
                 include '../view/footer.php';
-                break;              
+                break; 
+            case 'cart_remove':
+                    include '../view/header.php';
+                    include '../xuly/check_out.php';
+                    include '../xuly/remove.php';
+                    include '../view/cart.php';
+                    include '../view/footer.php';
+                    break;             
             case 'chuyendangnhap':
                 include '../xuly/chuyentrang.php';
                 break;
