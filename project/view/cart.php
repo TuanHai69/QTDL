@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css">
 <div class="container">
     <div class="contentbar">
         <!-- Start row -->
@@ -120,7 +119,7 @@
                                             <!-- <a href="page-checkout.html" class="btn btn-success my-1">Thanh toán<i class="ri-arrow-right-line ml-2"></i></a> -->
                                             <form action="index.php?act=checkout" method="post" class='col'>
                                                 <input type="hidden" name="masanpham"
-                                                    value=<?= htmlspecialchars($result['masanpham'])?>>
+                                                    value= >
                                                 <button class="btn btn-success my-1" type="submit"
                                                     name="thanhtoan">Thanh toán</button>
                                             </form>
