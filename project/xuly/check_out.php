@@ -2,7 +2,7 @@
     
     $statementc= $conn->prepare("SELECT * from banhang.giohang
       where giohang.makhachhang = :makhachhang");
-    $statementf = $conn->prepare("SELECT khachhang.tenkhachhang, khachhang.diachi,khachhang.sodienthoai,khachhang.email
+    $statementf = $conn->prepare("SELECT khachhang.tenkhachhang, khachhang.diachi,khachhang.sodienthoai,khachhang.email,khachhang.makhachhang
      from banhang.khachhang 
       where khachhang.makhachhang = :makhachhang");
     
