@@ -82,15 +82,14 @@
                     <td></td>
                     <?php
                         if (isset($_SESSION['capdo'])){
-                            echo '<form action="index.php?act=checkout" method="post">
-                            <input type="hidden" name="masanpham" value=';
-                            echo htmlspecialchars($result['masanpham']);
-                            echo '>
-                            <td><button class="btn btn-info" type="submit" name="thanhtoan">Mua ngay</button></td>
+                            echo '<form action="index.php?act=checkout" method="post">';
+                            echo '<input type="hidden" name="masanpham" value=';
+                                echo htmlspecialchars($result['masanpham']);
+                            echo '><td><button class="btn btn-info" type="submit1" name="thanhtoan">Mua ngay</button></td>
                             </form>';
                             echo '<form action="index.php?act=add_cart" method="post">
-                            <input type="hidden" name="makhachhang" value="';
-                            echo $_SESSION['id'];
+                                <input type="hidden" name="makhachhang" value="';
+                                echo $_SESSION['id'];
                             echo ' ">
                             <input type="hidden" name="masanpham" value="';
                             echo htmlspecialchars($result["masanpham"]);
@@ -101,19 +100,14 @@
                             <input type="hidden" name="giaca" value="';
                             echo htmlspecialchars($result["giaca"]);
                             echo '">
-                            <td><button type="submit" name="add_cart" class="btn btn-info">Thêm vào giỏ hàng</button></td>
+                            <td><button type="submit2" name="add_cart" class="btn btn-info">Thêm vào giỏ hàng</button></td>
                             </form>';
                         }else{
-                            echo '<form action="index.php?act=chuyendangnhap" method="post">
-                            <td><button class="btn btn-info" type="submit" name="thanhtoan">Mua ngay</button></td>
-                            </form>';
+                            echo '<td><a href="index.php?act=chuyendangnhap" class="btn btn-info" role="button" >Mua ngay</a></td>';
                             
-                            echo '<form action="index.php?act=chuyendangnhap" method="post">
-                            <td><button type="submit" name="add_cart" class="btn btn-info">Thêm vào giỏ hàng</button></td>
-                            </form>';
+                            echo '<td><a href="index.php?act=chuyendangnhap" class="btn btn-info" role="button" >Thêm vào giỏ hàng</a></td>';
                         }
                     ?>
-
                     <form action="index.php?act=product_detail" method="post">
                         <input type="hidden" name="masanpham" value=<?= htmlspecialchars($result['masanpham'])?>>
                         <td><button class="btn btn-info" name="product_detail" type="submit">Xem chi tiết</button></td>
