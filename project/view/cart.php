@@ -49,7 +49,9 @@
                                                                     name="cartQty1" id="cartQty1"
                                                                     value="<?= htmlspecialchars($result["soluong"]  )?>">
                                                             </td>
-                                                            <td><?php echo number_format($result["giaca"])?></td>
+                                                            <td>
+                                                                
+                                                            </td>
 
                                                             <td class="text-right">
                                                                 <?= $subtotal = $result["giaca"]*$result["soluong"]; $total+=$subtotal; ?>
@@ -57,12 +59,9 @@
 
                                                             <td>
                                                                 <form action="index.php?act=cart_remove" method="POST">
-                                                                    <input type="hidden" name="ma"
-                                                                        value=<?= htmlspecialchars($result['masanpham'])?>>
-                                                                    <input type="hidden" name="magh"
-                                                                        value=<?= htmlspecialchars($result['masanpham'])?>>
-                                                                    <button class="text-danger" name="submit"><i
-                                                                            class="ri-delete-bin-3-line"></i></button>
+                                                                    <input type="hidden" name="ma" value=<?=htmlspecialchars($result['masanpham'])?>>
+                                                                    <input type="hidden" name="magh" value=<?= htmlspecialchars($result['masanpham'])?>>
+                                                                    <button class="text-danger" name="submit"><i class="ri-delete-bin-3-line"></i></button>
                                                                 </form>
                                                             </td>
                                                         </tr>
