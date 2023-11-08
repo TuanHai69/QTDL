@@ -46,7 +46,7 @@
                                             <option value="XL">XL</option>
                                             <option value="XXL">XXL</option>
                                         </select>
-                                    </td>
+                                    </td> 
                                 </tr>
                                 <tr>
                                     <th class="text-center" scope="row" colspan="3">Giá :</th>

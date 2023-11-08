@@ -1,15 +1,5 @@
 <?php 
-    $random = strtoupper(substr(md5(mt_rand()), 0, 8));
-    if (isset($_POST["thanhtoan"])) {
-        $masanpham = $_POST["masanpham"];
-        $s = $conn->prepare('SELECT * FROM banhang.sanpham WHERE masanpham=:masanpham');
-      
-       
-        $s->bindParam(':masanpham', $masanpham);
-        $s->execute();
-        $r = $s->fetch(PDO::FETCH_ASSOC);
-    }
-     
+   
         ?>  
     
      <div class="container mt-4">
@@ -32,7 +22,7 @@
                       <li class="list-group-item d-flex justify-content-between lh-condensed">
                           <div>
                               <h6 class="my-0">Tên SP</h6>
-                              <small class="text-muted"><?php echo $r["tensanpham"] ?> x 1    </small>
+                              <small class="text-muted"><?= htmlspecialchars($result["tensanpham"]  ) x    </small>
                             
                           </div>
                           <span class="text-muted"> <?php echo $r["giaca"] ?>  </span>

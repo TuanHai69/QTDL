@@ -121,6 +121,7 @@
                 break;
             case 'cart':
                 include '../view/header.php';
+                include '../xuly/check_out.php';
                 include '../view/cart.php';
                 include '../view/footer.php';
                 break;
@@ -132,6 +133,7 @@
                     break;
             case 'checkout':
                 include '../view/header.php';
+                include '../xuly/check_out.php';
                 include '../view/checkout.php';
                 include '../view/footer.php';
                 break;  

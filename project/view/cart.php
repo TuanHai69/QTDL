@@ -1,5 +1,5 @@
-<?php
-?><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css">
 <div class="container">                
 <div class="contentbar">                
         <!-- Start row -->
@@ -22,27 +22,28 @@
                                                         <th scope="col">#</th>
                                                                                                     
                                                         <th scope="col">Sản phẩm</th>
-                                                        <th scope="col">Mã sản phẩm</th>
+                                                        <th scope="col">Mã SP</th>
                                                         <th scope="col">Số lượng</th>
                                                         <th scope="col">Giá</th>
-                                                        <th scope="col" class="text-right">Tổng giá</th>
+                                                        <th scope="col" class="text-right">Tổng</th>
                                                         <th scope="col">Xóa</th>   
                                                     </tr>
                                                 </thead>
+                                                
                                                 <tbody>
-                                                    <?php while($results = $statement->fetch(PDO::FETCH_ASSOC)) {?>
+                                                    <?php foreach ($results as $result) {?>
                                                     <tr>
                                                         <th scope="row"><?=$i=$i+1;?></th>
                                                         
-                                                        <td>Apple iPhone</td>
-                                                        <td>SP0000112</td>
+                                                        <td><?= htmlspecialchars($result["tensanpham"]  )?></td>
+                                                        <td><?= htmlspecialchars($result["masanpham"]  )?></td>
                                                         <td>
                                                             <div class="form-group mb-0">
-                                                                <input type="number" class="form-control cart-qty" name="cartQty1" id="cartQty1" value="<?php echo $results["soluong"]?>">
+                                                                <input type="number" class="form-control cart-qty" name="cartQty1" id="cartQty1" value="<?= htmlspecialchars($result["soluong"]  )?>">
                                                             </div>
                                                         </td>
-                                                        <td><?php echo number_format($results["giaca"])?></td>
-                                                        <td class="text-right">$500</td>
+                                                        <td><?php echo number_format($result["giaca"])?></td>
+                                                        <td class="text-right"><?= $subtotal = $result["giaca"]*$result["soluong"]; $total+=$subtotal; ?></td>
                                                         <td><a href="#" class="text-danger"><i class="ri-delete-bin-3-line"></i></a></td>
                                                     </tr>
                                                     <?php }?>
@@ -69,16 +70,16 @@
                                                         <tbody>
                                                             <tr>
                                                                 <td>Tạm tính</td>
-                                                                <td>200.000đ</td>
+                                                                <td><?= $total ?></td>
                                                             </tr>
                                                             <tr>
                                                                 <td>Phí ship</td>
-                                                                <td>$0.00</td>
+                                                                <td>30.000đ</td>
                                                             </tr>
                                                            
                                                             <tr>
                                                                 <td class="f-w-7 font-18"><h4>Tổng cộng</h4></td>
-                                                                <td class="f-w-7 font-18"><h4>200.000đ</h4></td>
+                                                                <td class="f-w-7 font-18"><h4><?= $total +30000 ?></h4></td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
@@ -86,9 +87,17 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="cart-footer text-right">
-                                        <button type="button" class="btn btn-info my-1"><i class="ri-save-line mr-2"></i>Sản phẩm khác</button>
-                                        <a href="page-checkout.html" class="btn btn-success my-1">Thanh toán<i class="ri-arrow-right-line ml-2"></i></a>
+                                    <div class="container cart-footer text-right">
+                                        <div class='row'>
+                                        <a class="btn btn-info my-1 col"  href="index.php?act=homepage"> Sản phẩm khác </a>
+                                        <!-- <a href="page-checkout.html" class="btn btn-success my-1">Thanh toán<i class="ri-arrow-right-line ml-2"></i></a> -->
+                                        <form action="index.php?act=checkout" method="post" class='col'>
+                                            <input type="hidden" name="masanpham" value=<?= htmlspecialchars($result['masanpham'])?>>
+                                             <button class="btn btn-success my-1" type="submit" name="thanhtoan">Thanh toán</button>
+                                        </form>
+
+                                        </div>
+                                        
                                     </div>
                                 </div>
                             </div>

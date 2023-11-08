@@ -80,10 +80,10 @@
                         <input type="hidden" name="masanpham" value=<?= htmlspecialchars($result['masanpham'])?>>
                         <td><button class="btn btn-info" type="submit" name="thanhtoan">Mua ngay</button></td>
                     </form>
-                     <form action="index.php?act=add_to_cart" method="post"> 
+                     <form action="index.php?act=add_cart" method="post"> 
                          <input type="hidden" name="addcart" value=<?= htmlspecialchars($result['masanpham'])?>>
                         <td><button class="btn btn-primary" 
-                            type="submit" name="addcart" >Thêm vào giỏ hàng</button></td>
+                            type="submit" name="add_cart" >Thêm vào giỏ hàng</button></td>
                      </form> 
 
                     <form action="index.php?act=product_detail" method="post">
