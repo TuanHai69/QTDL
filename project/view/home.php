@@ -97,8 +97,9 @@
                         }
                     ?>
                     <form action="index.php?act=product_detail" method="post">
-                        <input type="hidden" name="masanpham" value=<?= htmlspecialchars($result['masanpham'])?>>
+                        <input type="hidden" name="masanpham" value=<?=$result['masanpham']?>>
                         <td><button class="btn btn-info" name="product_detail" type="submit">Xem chi tiết</button></td>
+                    </form>
                 </tr>
                 <?php endforeach ?>
             </tbody>
