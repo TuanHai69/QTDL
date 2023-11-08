@@ -1,9 +1,9 @@
 <?php $tong = 0; 
         $tam=0;?>
      <div class="container mt-4">
-      <form class="needs-validation" name="frmthanhtoan" method="post"
-          action="#">
-          <input type="hidden" name="" value="">
+      <form class="needs-validation" name="submit" method="post"
+          action="index.php?act=thanhtoan">
+          <input type="hidden" name="diachi" value="<?= htmlspecialchars($r1["diachi"]) ?>">
 
           <div class="py-5 text-center">
                 <h2 >Thanh toán</h2>
@@ -79,10 +79,11 @@
 
                   
                   <hr class="mb-4">
-                  <form action="index.php?act=thanhtoan" method="POST">
-                        <input type="hidden" name="magh" value='<?= htmlspecialchars($results[$i]['magiohang'])?>'>
+                  
+                        <input type="hidden" name="magiohang" value='<?=htmlspecialchars($results[$i]['magiohang'])?>'>
+                        
                         <button class="btn btn-primary btn-lg btn-block"  name="submit">Đặt hàng</button>
-                  </form>
+                
                  
               </div>
           </div>
