@@ -14,15 +14,20 @@
                                 <li class="nav-item active">
                                     <a class="nav-link bg-info text-light" href="index.php?act=homepage">Home </a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link bg-info text-light" href="index.php?act=cart">Giỏ hàng</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link bg-info text-light" href="index.php?act=checkout">Thanh Toán</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link bg-info text-light" href="index.php?act=Tientrinh">Tiến trình</a>
-                                </li>
+                                <?php
+                                    if (isset($_SESSION['user'])){
+                                        echo '                                <li class="nav-item">
+                                        <a class="nav-link bg-info text-light" href="index.php?act=cart">Giỏ hàng</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link bg-info text-light" href="index.php?act=checkout">Thanh Toán</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link bg-info text-light" href="index.php?act=Tientrinh">Tiến trình</a>
+                                    </li>';
+                                    }
+                                ?>
+
                                 <li class="nav-item">
                                     <?php
                                                 if (isset($_SESSION['user'])) {

@@ -60,11 +60,11 @@
                 include '../view/footer.php';
                 break;
             //Với case act=code_update_product thì chuyển sang trang code xử lý cập nhật sản phẩm
-            case 'code_update_product';
+            case 'code_update_product':
                 include '../xuly/code_update_product.php';
                 break;
             //Với case act=add_cart thì chuyển sang trang code xử lý thêm vào giỏ hàng
-            case 'add_cart';
+            case 'add_cart':
                 include '../xuly/add_cart.php';
                 break;
             // case act=logout thì sẽ đăng xuất ra khỏi tài khoản 
@@ -154,8 +154,7 @@
                 break;
             case 'Tientrinh':
                 include '../view/header.php';
-                include '../xuly/check_out.php';
-                include '../view/cart.php';
+                include '../view/Giaohang.php';
                 include '../view/footer.php';
                 break; 
             case 'cart_remove':
@@ -176,7 +175,6 @@
                 break; 
         }
     } else {
-        unset($_SESSION['capdo']);
         include '../view/header.php';
         include '../xuly/xapxepdefault.php';
         include '../view/home.php';
