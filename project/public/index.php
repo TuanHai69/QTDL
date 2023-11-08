@@ -131,6 +131,12 @@
                 include '../view/cart.php';
                 include '../view/footer.php';
                 break;
+            case 'add_to_cart':
+                include '../view/header.php';
+                include '../xuly/xapxepdefault.php';
+                include '../view/home.php';
+                include '../view/footer.php';
+                    break;
             case 'checkout':
                 include '../view/header.php';
                 include '../view/checkout.php';

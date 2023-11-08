@@ -73,7 +73,7 @@
                 <tr>
                     <th scope="row"><?= $i=$i+1 ?></th>
                     <td><?= htmlspecialchars($result['tensanpham'])?></td>
-                    <td></td>
+                    <td></td> 
                     <td><?= htmlspecialchars($result['giaca'])?></td>
                     <td></td>
                     <form action="index.php?act=checkout" method="post">
@@ -82,7 +82,7 @@
                     </form>
                      <form action="index.php?act=add_to_cart" method="post"> 
                          <input type="hidden" name="addcart" value=<?= htmlspecialchars($result['masanpham'])?>>
-                        <td><button class="btn btn-primary"
+                        <td><button class="btn btn-primary" 
                             type="submit" name="addcart" >Thêm vào giỏ hàng</button></td>
                      </form> 
 

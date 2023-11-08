@@ -26,7 +26,7 @@
                                 <li class="nav-item">
                                     <?php
                                                 if (isset($_SESSION['user'])) {
-                                                    if ($_SESSION['capdo'] == '1'){
+                                                    if ($_SESSION['capdo'] == '1'){ 
                                                         echo '
                                                         <a href="index.php?act=view_account" class="nav-link bg-info text-light">
                                                             Accounts setting

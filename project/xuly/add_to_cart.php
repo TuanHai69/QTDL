@@ -15,6 +15,7 @@
 
 
         $query=$conn->prepare("call themvaogiohang(:macart,:makh,:tenkh,:dc, :sdt,:email,:masp,:tensp,:gia,:sl)");
+
         $query->bindParam(":macart",$magiohang);
         $query->bindParam(":mahk",$makh);
         $query->bindParam(":tenkh",$tenkh); 
@@ -25,6 +26,6 @@
         $query->bindParam(":tensp",$tensanpham);
         $query->bindParam(":gia",$gia);
         $query->bindParam(":sl",$soluong);
- 
+        $query->execute();
     }
 ?>
