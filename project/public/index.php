@@ -33,12 +33,16 @@
                 include '../xuly/update_profile.php';
                 break;
             // Khi ADMIN bấm vào accounts setting thì có thể xem được danh sách các tài khoản trong CSDL và có quyền thay đổi các quyền của tài 
-            // khoản này
+            // khoản trong CSDL Chĩnh sữa quyền admin / client
             case 'view_account':
                 include '../view/header.php';
                 include '../view/view_account.php';
                 include '../view/footer.php';
                 break;
+            // Cập nhật Cấp độ của sản phẩm 
+            case 'update_level':
+                include '../xuly/updatecapdo.php';
+                break;            
             //Với case act=product_detail thì hiển thị trang chi tiết sản phẩm
             case 'product_detail':
                 include '../view/header.php';
@@ -63,9 +67,7 @@
             case 'add_cart';
                 include '../xuly/add_cart.php';
                 break;
-            case 'update_level':
-                include '../xuly/updatecapdo.php';
-                break;
+            // case act=logout thì sẽ đăng xuất ra khỏi tài khoản 
             case 'logout':
                 unset($_SESSION['user']);
                 $_SESSION['capdo']='0';
@@ -74,55 +76,65 @@
                 include "../view/home.php";
                 include '../view/footer.php';
                 break;
+            // case act=dangky thì sẽ chuyển sang trang đăng ký tài khoản
             case 'dangky':
                 include '../view/header.php';
                 include '../view/register.php';
                 include '../view/footer.php';
                 break;
+            // case act=register sẽ sử lý thông tin khách hàng được nhập vào từ trang đăng ký và tạo
             case 'register':
                 include '../xuly/register.php';
                 break;
+            // case act=homepage sẽ hiện trang sản phẩm ban đầu
             case 'homepage':
                 include '../view/header.php';
                 include '../xuly/xapxepdefault.php';
                 include '../view/home.php';
                 include '../view/footer.php';
                 break;
+            // case search sẽ tìm các sản phẩm có liên quan đến từ khóa được tìm kiếm
             case 'search':
                 include '../view/header.php';
                 include '../xuly/search.php';
                 include '../view/home.php';
                 include '../view/footer.php';
-                break;            
+                break;
+            // Xắp xếp các sản phẩm theo thứ tự từ A đến Z   
             case 'TenAtoiZ':
                 include '../view/header.php';
                 include '../xuly/TenAtoiZ.php';
                 include '../view/home.php';
                 include '../view/footer.php';
                 break;
+            // Xắp xếp các phẩm theo thứ tự từ Z Về A
             case 'TenZveA':
                 include '../view/header.php';
                 include '../xuly/TenZveA.php';
                 include '../view/home.php';
                 include '../view/footer.php';
                 break;
+            // Xắp xếp theo giá trị của sản phẩm : Tăng
             case 'GiaTang':
                 include '../view/header.php';
                 include '../xuly/GiaTang.php';
                 include '../view/home.php';
                 include '../view/footer.php';
                 break;
+            // Xắp xếp theo giá trị của sản phẩm : Giảm
             case 'GiaGiam':
                 include '../view/header.php';
                 include '../xuly/GiaGiam.php';
                 include '../view/home.php';
                 include '../view/footer.php';
-                break;            
+                break;   
+            // Hiển thị trang thêm sản phẩm  
             case 'add_product':
                 include '../view/header.php';
                 include '../view/add_product.php';
                 include '../view/footer.php';
                 break;
+            // Xử lý phần thêm sản phẩm
             case 'add_SP':
                 include '../xuly/add_product.php';
                 break;
@@ -131,12 +143,6 @@
                 include '../view/cart.php';
                 include '../view/footer.php';
                 break;
-            case 'add_to_cart':
-                include '../view/header.php';
-                include '../xuly/xapxepdefault.php';
-                include '../view/home.php';
-                include '../view/footer.php';
-                    break;
             case 'checkout':
                 include '../view/header.php';
                 include '../view/checkout.php';

@@ -51,7 +51,7 @@
 
             echo '<script type="text/javascript">';
             echo 'alert("Thêm sản phẩm vào giỏ hàng thành công");';
-            echo 'window.location.href="index.php?act=product_detail"'; 
+            echo 'window.location.href="index.php?act=homepage"'; 
             echo '</script>';
         }
     } else {
