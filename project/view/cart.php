@@ -44,7 +44,12 @@
                                                         </td>
                                                         <td><?php echo number_format($result["giaca"])?></td>
                                                         <td class="text-right"><?= $subtotal = $result["giaca"]*$result["soluong"]; $total+=$subtotal; ?></td>
-                                                        <td><a href="#" class="text-danger"><i class="ri-delete-bin-3-line"></i></a></td>
+                                                        <td><form action="index.php?act=cart_remove">
+                                                        <input type="hidden" name="masancart_removepham" value=<?= htmlspecialchars($result['masanpham'])?>>
+
+                                                        <button  class="text-danger" name="remove"><i class="ri-delete-bin-3-line"></i></button>
+
+                                                        </form></td>
                                                     </tr>
                                                     <?php }?>
                                                 </tbody>
