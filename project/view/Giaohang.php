@@ -22,7 +22,14 @@
                         <th scope="col"></th>
                         <th scope="col"></th>
                         <th scope="col">Tiến trình giao hàng</th>
-                        <th scope="col">Xác nhận</th>
+                        <?php
+                            if ($_SESSION['capdo'] == 1){
+                                echo '<th scope="col">Xác nhận</th>';
+                            }else{
+                                echo '<th scope="col"></th>';
+                            }
+                        ?>
+                        
                     </tr>
                 </thead>
                 <tbody>
@@ -58,7 +65,9 @@
                                     echo '</td>';
                                     echo '</form>';
                                 }else{
+                                    echo '<td>';
                                     echo htmlspecialchars($result['tientrinhgiao']);
+                                    echo '</td>';
                                 }
                                 
                             ?>

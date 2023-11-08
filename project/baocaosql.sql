@@ -51,14 +51,14 @@ create	table giaohang (
 	magiaohang	char(8) primary key,
     diachigiao varchar(50),
     sodonhang char(8),
-    tientrinhgiao varchar(20),
+    tientrinhgiao varchar(20) default ('đang vận chuyển'),
 	FOREIGN KEY(sodonhang) REFERENCES donhang(sodonhang)
 );
 DELETE from banhang.giohang where masanpham ='ABCD0005' AND makhachhang='KH000003' AND magiohang ='KH000003';
-insert into giaohang (magiaohang, diachigiao, sodonhang, sanphamduocdat,tientrinhgiao) values('GH000001','Ninh kiều Cần thơ', 'DH000001', 'Áo T-shirt Trắng', 'đang vận chuyển');
-insert into giaohang (magiaohang, diachigiao, sodonhang, sanphamduocdat,tientrinhgiao) values('GH000002','Ninh kiều Cần thơ', 'DH000004', 'Áo T-shirt Đen', 'đang vận chuyển');
-insert into giaohang (magiaohang, diachigiao, sodonhang, sanphamduocdat,tientrinhgiao) values('GH000003','Ninh kiều Cần thơ', 'DH000002', 'Áo T-shirt Hồng', 'đang vận chuyển');
-insert into giaohang (magiaohang, diachigiao, sodonhang, sanphamduocdat,tientrinhgiao) values('GH000004','Ninh kiều Cần thơ', 'DH000003', 'Quần jean nam', 'đã giao');
+insert into giaohang (magiaohang, diachigiao, sodonhang) values('GH000001','Ninh kiều Cần thơ', 'DH000001');
+insert into giaohang (magiaohang, diachigiao, sodonhang) values('GH000002','Ninh kiều Cần thơ', 'DH000004');
+insert into giaohang (magiaohang, diachigiao, sodonhang) values('GH000003','Ninh kiều Cần thơ', 'DH000002');
+insert into giaohang (magiaohang, diachigiao, sodonhang) values('GH000004','Ninh kiều Cần thơ', 'DH000003');
 USE `banhang`$$
 -- procedure dang ky tai khoan
 DELIMITER $$

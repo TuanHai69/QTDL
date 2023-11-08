@@ -76,8 +76,8 @@
                     <td></td>
                     
                     <?php
-                        if (isset($_SESSION['capdo'])){
-
+                
+                        if (isset($_SESSION['capdo']) && $_SESSION['capdo'] == 0){
                             echo '<td>
                                     <form action="index.php?act=add_cart" method="post">
                                         <input type="hidden" name="makhachhang" value="';
@@ -95,8 +95,12 @@
                                         <button type="submit2" name="add_cart" class="btn btn-info">Thêm vào giỏ hàng</button>
                                     </form>
                                 </td>';
-                        }else{       
-                            echo '<td><a href="index.php?act=chuyendangnhap" class="btn btn-info" role="button" >Thêm vào giỏ hàng</a></td>';
+                        }else{
+                            if (isset($_SESSION['capdo']) && $_SESSION['capdo']== '1'){
+                            }else{
+                                echo '<td><a href="index.php?act=chuyendangnhap" class="btn btn-info" role="button" >Thêm vào giỏ hàng</a></td>';
+                            }
+                            
                         }
                     ?>
                     <form action="index.php?act=product_detail" method="post">

@@ -15,8 +15,8 @@
                                     <a class="nav-link bg-info text-light" href="index.php?act=homepage">Home </a>
                                 </li>
                                 <?php
-                                    if (isset($_SESSION['user'])){
-                                        echo '                                <li class="nav-item">
+                                    if (isset($_SESSION['user']) && $_SESSION['capdo'] == 0 ){
+                                        echo '<li class="nav-item">
                                         <a class="nav-link bg-info text-light" href="index.php?act=cart">Giỏ hàng</a>
                                     </li>
                                     <li class="nav-item">
@@ -27,12 +27,21 @@
                                     </li>';
                                     }
                                 ?>
-
+                                <?php
+                                    if (isset($_SESSION['user'])) {
+                                        if ($_SESSION['capdo'] == '1'){
+                                            echo '<li class="nav-item">
+                                                    <a class="nav-link bg-info text-light" href="index.php?act=Tientrinh">Tiến trình</a>
+                                                </li>';
+                                        }
+                                    }
+                                ?>
                                 <li class="nav-item">
                                     <?php
                                                 if (isset($_SESSION['user'])) {
                                                     if ($_SESSION['capdo'] == '1'){ 
                                                         echo '
+                                                        
                                                         <a href="index.php?act=view_account" class="nav-link bg-info text-light">
                                                             Accounts setting
                                                         </a>
