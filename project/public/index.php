@@ -70,7 +70,7 @@
             // case act=logout thì sẽ đăng xuất ra khỏi tài khoản 
             case 'logout':
                 unset($_SESSION['user']);
-                $_SESSION['capdo']='0';
+                unset($_SESSION['capdo']);
                 include "../view/header.php";
                 include '../xuly/xapxepdefault.php';
                 include "../view/home.php";
@@ -152,6 +152,15 @@
                 include '../view/checkout.php';
                 include '../view/footer.php';
                 break;
+            case 'Tientrinh':
+                include '../view/header.php';
+                include '../xuly/check_out.php';
+                include '../view/cart.php';
+                include '../view/footer.php';
+                break;              
+            case 'chuyendangnhap':
+                include '../xuly/chuyentrang.php';
+                break;
             default:
                 include '../view/header.php';
                 include '../xuly/xapxepdefault.php';
@@ -160,7 +169,7 @@
                 break;
         }
     } else {
-        $_SESSION['capdo']='0';
+        unset($_SESSION['capdo']);
         include '../view/header.php';
         include '../xuly/xapxepdefault.php';
         include '../view/home.php';

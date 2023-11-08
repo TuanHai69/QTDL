@@ -21,7 +21,7 @@
                                     <a class="nav-link bg-info text-light" href="index.php?act=checkout">Thanh Toán</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link bg-info text-light" href="index.php?act=cart">Tiến trình</a>
+                                    <a class="nav-link bg-info text-light" href="index.php?act=Tientrinh">Tiến trình</a>
                                 </li>
                                 <li class="nav-item">
                                     <?php
