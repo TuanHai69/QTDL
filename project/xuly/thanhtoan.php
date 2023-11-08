@@ -20,7 +20,7 @@ if (isset($_POST["submit"])) {
 
     echo '<script type="text/javascript">';
     echo 'alert("Đã đặt hàng thành công");';
-    echo 'window.location.href="index.php?act=cart"'; 
+    echo 'window.location.href="index.php?act=home"'; 
     echo '</script>';
 
 }
