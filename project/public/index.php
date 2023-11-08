@@ -166,7 +166,7 @@
                 include '../xuly/xapxepdefault.php';
                 include '../view/home.php';
                 include '../view/footer.php';
-                break;
+                break; 
         }
     } else {
         unset($_SESSION['capdo']);
