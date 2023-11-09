@@ -36,14 +36,14 @@ insert into khachhang (makhachhang, tenkhachhang, matkhau, diachi, sodienthoai, 
 create table donhang (
 	sodonhang char(8) primary key,
     ngaydathang date,
-    masanpham CHAR(8),
+    magiohang CHAR(8),
     makhachhang char(8),
 	FOREIGN KEY(makhachhang) REFERENCES khachhang(makhachhang),
-	FOREIGN KEY(masanpham) REFERENCES sanpham(masanpham)
+	FOREIGN KEY(magiohang) REFERENCES giohang(magiohang)
 );
 
-insert into donhang (sodonhang, ngaydathang, makhachhang, masanpham) values('DH000001','2023-11-30','KH000002','ABCD0001');
-insert into donhang (sodonhang, ngaydathang, makhachhang, masanpham) values('DH000004','2023-11-3','KH000002','ABCD0002');
+insert into donhang (sodonhang, ngaydathang, makhachhang, magiohang) values('DH000001','2023-11-30','KH000002','ABCD0001');
+insert into donhang (sodonhang, ngaydathang, makhachhang, magiohang) values('DH000004','2023-11-3','KH000002','ABCD0002');
 insert into donhang (sodonhang, ngaydathang, makhachhang, masanpham) values('DH000002','2023-11-3','KH000002','ABCD0003');
 insert into donhang (sodonhang, ngaydathang, makhachhang, masanpham) values('DH000003','2023-11-3','KH000003','ABCD0004');
 
