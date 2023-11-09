@@ -82,7 +82,7 @@
                                     <form action="index.php?act=add_cart" method="post">
                                         <input type="hidden" name="makhachhang" value="';
                                         echo $_SESSION['id'];
-                                        echo ' ">
+                                        echo '">
                                         <input type="hidden" name="masanpham" value="';
                                         echo htmlspecialchars($result["masanpham"]);
                                         echo '">

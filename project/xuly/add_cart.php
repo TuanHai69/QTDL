@@ -4,7 +4,8 @@
 
         $masanpham = $_POST["masanpham"];
         //Xuất dữ liệu từ bảng giỏ hàng
-        $stmt1 = $conn->prepare('SELECT * FROM banhang.giohang');
+        $stmt1 = $conn->prepare('SELECT * FROM banhang.giohang where makhachhang=:ma');
+        $stmt1->bindParam(':ma',$_POST['makhachhang']);
         $stmt1->execute();
         $results = $stmt1->fetchAll(PDO::FETCH_ASSOC);
         //Tạo 2 biến đếm i, j
@@ -14,7 +15,7 @@
             //Nếu đã tồn tại sản phẩm trong giỏ hàng thì cập nhật số lượng
         if ($results > 0) {
                 foreach ($results as $product) {
-                    if ($product["masanpham"] == "$masanpham"){
+                    if ($product["masanpham"] == $masanpham){
                         //Cập nhật số lượng
                         $soluongmoi = $product["soluong"] + 1;
                         $stmt2 = $conn->prepare('UPDATE banhang.giohang SET soluong=:soluongmoi WHERE masanpham=:masanpham');
@@ -22,7 +23,7 @@
                         $stmt2->bindParam(':masanpham', $masanpham);
                         $stmt2->execute();
                         echo '<script type="text/javascript">';
-                        echo 'alert("Thêm sản phẩm vào giỏ hàng thành công");';
+                        echo 'alert("Thêm sản phẩm vào giỏ hàng thành công1");';
                         echo 'window.location.href="index.php?act=homepage"'; 
                         echo '</script>';
                         $j=1;
